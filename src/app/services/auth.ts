@@ -14,7 +14,7 @@ export class AuthService {
         firstName: 'Example',
         lastName: 'User',
         email: 'example.user@email.com',
-        phoneNumber: '123-456-7890',
+        phoneNumber: '+38123456789',
         address: '123 Main St',
         favoriteCategory: '',
         password: 'password',
@@ -42,11 +42,11 @@ export class AuthService {
     return loggedInCustomer || null;
   }
 
-  signUp(data: SignUpData): Customer {
+  signUp(data: SignUpData): Customer | null {
     const customers = this.getCustomers();
     const existingCustomer = customers.find((customer) => customer.email === data.email);
     if (existingCustomer) {
-      throw new Error('Email already in use');
+      return null;
     }
 
     const customer: Customer = {

@@ -1,0 +1,72 @@
+<div class="row mt-5">
+  <div class="col-3"></div>
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-title">Sign Up</h5>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="first-name" class="form-label">First Name</label>
+            <input type="text" [class.is-invalid]="(form.get('firstName')?.invalid && form.get('firstName')?.touched)"
+              class="form-control" id="first-name" formControlName="firstName">
+          </div>
+          <div class="mb-3">
+            <label for="last-name" class="form-label">Last Name</label>
+            <input type="text" [class.is-invalid]="(form.get('lastName')?.invalid && form.get('lastName')?.touched)"
+              class="form-control" id="last-name" formControlName="lastName">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email"
+              [class.is-invalid]="(form.get('email')?.invalid && form.get('email')?.touched) || form.hasError('emailInUse')"
+              class="form-control" id="email" formControlName="email">
+              @if (form.hasError('emailInUse')) {
+                <ul><li class="text-danger">Email is already in use</li></ul>
+              }
+          </div>
+          <div class="mb-3">
+            <label for="phone-number" class="form-label">Phone Number</label>
+            <input type="tel"
+              [class.is-invalid]="(form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.touched)"
+              class="form-control" id="phone-number" formControlName="phoneNumber">
+          </div>
+          <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" [class.is-invalid]="(form.get('address')?.invalid && form.get('address')?.touched)"
+              class="form-control" id="address" formControlName="address">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched)"
+              class="form-control" id="password" formControlName="password">
+              @if (form.get('password')?.hasError('minlength')) {
+                <ul><li class="text-danger">Password must be at least 6 characters long</li></ul>
+              }
+          </div>
+          <div class="mb-3">
+            <label for="confirm-password" class="form-label">Confirm Password</label>
+            <input type="password"
+              [class.is-invalid]="(form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched) || form.hasError('passwordMismatch')"
+              class="form-control" id="confirm-password" formControlName="confirmPassword">
+              @if (form.hasError('passwordMismatch')) {
+                <ul><li class="text-danger">Passwords do not match</li></ul>
+              }
+          </div>
+          <div class="mb-3">
+            <label for="favorite-toy-category" class="form-label">Favorite Toy Category</label>
+            <select class="form-select" id="favorite-toy-category" formControlName="favoriteCategory">
+              <option selected>Open this select menu</option>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary float-end">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-3"></div>
+</div>
