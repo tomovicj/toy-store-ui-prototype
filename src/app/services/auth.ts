@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Customer } from '../../models/customer';
+import { Customer } from '../models/customer';
 
 export type SignUpData = Omit<Customer, 'id' | 'orders'>;
 
