@@ -7,7 +7,7 @@ export interface Customer {
   email: string;
   phoneNumber: string;
   address: string;
-  favoriteCategories: string[];
+  favoriteCategory: string;
   password: string;
   orders: Order[];
 }

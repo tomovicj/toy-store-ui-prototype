@@ -16,7 +16,7 @@ export class AuthService {
         email: 'example.user@email.com',
         phoneNumber: '123-456-7890',
         address: '123 Main St',
-        favoriteCategories: [],
+        favoriteCategory: '',
         password: 'password',
       });
     }
@@ -56,7 +56,7 @@ export class AuthService {
       email: data.email,
       phoneNumber: data.phoneNumber,
       address: data.address,
-      favoriteCategories: data.favoriteCategories,
+      favoriteCategory: data.favoriteCategory,
       password: data.password,
       orders: [],
     };
