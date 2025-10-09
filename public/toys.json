@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "name": "Building Blocks",
+    "description": "Colorful building blocks for creative play.",
+    "category": "Educational",
+    "forAgeGroup": "3-5",
+    "forGender": "unisex",
+    "manufactureDate": "2023-01-15",
+    "price": 19.99,
+    "imageUrl": "assets/images/building-blocks.jpg",
+    "reviews": []
+  },
+  {
+    "id": "2",
+    "name": "Action Figure",
+    "description": "Superhero action figure with movable joints.",
+    "category": "Action Figures",
+    "forAgeGroup": "6-8",
+    "forGender": "boy",
+    "manufactureDate": "2022-11-20",
+    "price": 14.99,
+    "imageUrl": "assets/images/action-figure.jpg",
+    "reviews": []
+  },
+  {
+    "id": "3",
+    "name": "Dollhouse",
+    "description": "Beautiful dollhouse with furniture and accessories.",
+    "category": "Dolls",
+    "forAgeGroup": "6-8",
+    "forGender": "girl",
+    "manufactureDate": "2023-03-05",
+    "price": 49.99,
+    "imageUrl": "assets/images/dollhouse.jpg",
+    "reviews": []
+  },
+  {
+    "id": "4",
+    "name": "Puzzle Set",
+    "description": "Challenging puzzle set for ages 9 and up.",
+    "category": "Puzzles",
+    "forAgeGroup": "9-12",
+    "forGender": "unisex",
+    "manufactureDate": "2022-09-10",
+    "price": 12.99,
+    "imageUrl": "assets/images/puzzle-set.jpg",
+    "reviews": []
+  },
+  {
+    "id": "5",
+    "name": "Remote Control Car",
+    "description": "Fast remote control car with rechargeable battery.",
+    "category": "Vehicles",
+    "forAgeGroup": "6-8",
+    "forGender": "boy",
+    "manufactureDate": "2023-02-12",
+    "price": 29.99,
+    "imageUrl": "assets/images/remote-control-car.jpg",
+    "reviews": []
+  }
+]

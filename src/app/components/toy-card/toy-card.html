@@ -1,0 +1,13 @@
+<div class="toy-card border p-3" style="max-width: 300px;">
+  <div class="ratio ratio-1x1">
+    <img [src]="toy().imageUrl" alt="{{ toy().name }}" class="img-fluid" />
+  </div>
+  <div>
+    <h2>{{ toy().name }}</h2>
+    <p>{{ toy().description }}</p>
+    <p>Price: {{ toy().price }}</p>
+    <div class="d-flex justify-content-end">
+      <button (click)="addToCart()" class="btn btn-primary">Add to Cart</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+<div class="my-5 d-flex flex-wrap gap-3 justify-content-center">
+  @for (toy of toys(); track $index) {
+  <app-toy-card [toy]="toy" />
+  }
+</div>

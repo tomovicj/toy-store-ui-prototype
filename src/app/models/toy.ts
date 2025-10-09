@@ -9,5 +9,6 @@ export interface Toy {
   forGender: 'boy' | 'girl' | 'unisex';
   manufactureDate: string; // ISO date string
   price: number;
+  imageUrl: string;
   reviews: Review[];
 }
