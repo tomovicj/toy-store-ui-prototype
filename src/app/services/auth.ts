@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer';
+import { CustomerService } from './customer';
 
 export type SignUpData = Omit<Customer, 'id' | 'orders'>;
 
@@ -7,8 +8,8 @@ export type SignUpData = Omit<Customer, 'id' | 'orders'>;
   providedIn: 'root',
 })
 export class AuthService {
-  constructor() {
-    const customers = this.getCustomers();
+  constructor(private customerService: CustomerService) {
+    const customers = this.customerService.getCustomers();
     if (customers.length === 0) {
       this.signUp({
         firstName: 'Example',
@@ -22,10 +23,6 @@ export class AuthService {
     }
   }
 
-  getCustomers(): Customer[] {
-    return JSON.parse(localStorage.getItem('customers') || '[]') as Customer[];
-  }
-
   isLoggedIn(): boolean {
     const loggedInCustomerId = localStorage.getItem('loggedInCustomer');
     return loggedInCustomerId !== null;
@@ -37,13 +34,11 @@ export class AuthService {
       return null;
     }
 
-    const customers = this.getCustomers();
-    const loggedInCustomer = customers.find((customer) => customer.id === loggedInCustomerId);
-    return loggedInCustomer || null;
+    return this.customerService.getCustomerById(loggedInCustomerId);
   }
 
   signUp(data: SignUpData): Customer | null {
-    const customers = this.getCustomers();
+    const customers = this.customerService.getCustomers();
     const existingCustomer = customers.find((customer) => customer.email === data.email);
     if (existingCustomer) {
       return null;
@@ -61,15 +56,14 @@ export class AuthService {
       orders: [],
     };
 
-    customers.push(customer);
-    localStorage.setItem('customers', JSON.stringify(customers));
+    this.customerService.saveCustomer(customer);
 
     this.login(data.email, data.password);
     return customer;
   }
 
   login(email: string, password: string): Customer | null {
-    const customers = this.getCustomers();
+    const customers = this.customerService.getCustomers();
     const customer = customers.find(
       (customer) => customer.email === email && customer.password === password
     );
