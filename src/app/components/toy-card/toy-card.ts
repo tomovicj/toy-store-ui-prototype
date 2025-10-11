@@ -1,13 +1,25 @@
 import { Component, input } from '@angular/core';
 import { Toy } from '../../models/toy';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CustomerService } from '../../services/customer';
+import { UtilService } from '../../services/util';
+import { AuthService } from '../../services/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toy-card',
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './toy-card.html',
   styleUrl: './toy-card.css',
 })
 export class ToyCard {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private customerService: CustomerService,
+    public utilService: UtilService
+  ) {}
+
   toy = input<Toy>({
     id: '',
     name: '',
@@ -21,8 +33,26 @@ export class ToyCard {
     reviews: [],
   });
 
-  addToCart() {
-    // Logic to add the toy to the shopping cart
-    console.log(`Adding ${this.toy().name} to cart.`);
+  form: FormGroup = new FormGroup({
+    quantity: new FormControl(1, [
+      Validators.required,
+      Validators.pattern(/^[0-9]+$/),
+      Validators.min(1),
+    ]),
+  });
+
+  onReserve() {
+    const customer = this.authService.getLoggedInCustomer();
+    if (!customer) {
+      this.router.navigateByUrl('/login');
+      return;
+    }
+
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.customerService.reserveToy(customer.id, this.toy().id, this.form.value.quantity);
   }
 }
