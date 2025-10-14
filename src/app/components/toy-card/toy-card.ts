@@ -55,4 +55,15 @@ export class ToyCard {
 
     this.customerService.reserveToy(customer.id, this.toy().id, this.form.value.quantity);
   }
+
+  onClick(event: MouseEvent) {
+    event.stopPropagation();
+
+    // Prevent navigation when clicking on button or input
+    const target = event.target as HTMLElement;
+    if (target.tagName === 'BUTTON' || target.closest('button')) return;
+    if (target.tagName === 'INPUT' || target.closest('input')) return;
+
+    this.router.navigate(['/toy', this.toy().id]);
+  }
 }

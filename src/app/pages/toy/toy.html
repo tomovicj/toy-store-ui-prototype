@@ -1,0 +1,31 @@
+@if (toy()) {
+<div class="card my-5">
+  <div class="card-body p-0">
+    <div class="row m-0">
+      <div class="col p-0">
+        <img [src]="toy()!.imageUrl" class="img-fluid" alt="Image of {{ toy()!.name }}" />
+      </div>
+      <div class="col p-3 d-flex flex-column justify-content-between">
+        <div>
+          <h2 class="card-title">{{ toy()!.name }}</h2>
+          <p class="card-text">{{ toy()!.description }}</p>
+          <p class="card-text"><strong>Category: </strong>{{ toy()!.category }}</p>
+          <p class="card-text"><strong>Age Range:</strong> {{ toy()!.forAgeGroup }}</p>
+          <p class="card-text text-capitalize"><strong>Gender:</strong> {{ toy()!.forGender }}</p>
+          <p class="card-text"><strong>Manufacture Date:</strong> {{ utilService.formatDate(toy()!.manufactureDate) }}
+          </p>
+          <p class="card-text"><strong>Price:</strong> {{ utilService.formatPrice(toy()!.price) }}</p>
+        </div>
+        <div>
+          <form class="input-group" [formGroup]="reservationForm" (ngSubmit)="onReserve()">
+            <input type="number" min="1" class="form-control" aria-label="Quantity" formControlName="quantity">
+            <button class="btn btn-primary w-75" type="submit">
+              <i class="bi bi-cart-plus"></i> Reserve
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

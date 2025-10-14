@@ -22,8 +22,8 @@ export class ToyService {
     return toys ? JSON.parse(toys) : [];
   }
 
-  getToyById(id: string): Toy | undefined {
+  getToyById(id: string): Toy | null {
     const toys = this.getToys();
-    return toys.find((toy) => toy.id === id);
+    return toys.find((toy) => toy.id === id) || null;
   }
 }

@@ -12,4 +12,13 @@ export class UtilService {
   formatPrice(price: number): string {
     return this.priceFormatter.format(price);
   }
+
+  formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('sr-RS', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  }
 }

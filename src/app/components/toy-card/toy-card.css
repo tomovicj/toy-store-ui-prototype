@@ -1,0 +1,8 @@
+.toy-card:hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.toy-card:hover h3 {
+  text-decoration: underline;
+}
