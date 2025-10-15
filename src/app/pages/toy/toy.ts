@@ -4,10 +4,11 @@ import { Toy } from '../../models/toy';
 import { ToyService } from '../../services/toy';
 import { UtilService } from '../../services/util';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ToyReviews } from '../../components/toy-reviews/toy-reviews';
 
 @Component({
   selector: 'app-toy',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, ToyReviews],
   templateUrl: './toy.html',
   styleUrl: './toy.css',
 })
@@ -48,5 +49,9 @@ export class ToyPage implements OnInit {
     }
 
     // TODO
+  }
+
+  getAverageRating() {
+    return this.toyService.getAverageRating(this.toy()!.id);
   }
 }

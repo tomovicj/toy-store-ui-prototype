@@ -21,4 +21,30 @@ export class UtilService {
       day: 'numeric',
     });
   }
+
+  getRandomName(): string {
+    const names = [
+      'Nataniel Lawson',
+      'Anoushka Hodge',
+      'Raymond Ruiz',
+      'Athena Mcbride',
+      'Abdullah Leon',
+      'Diana Sloan',
+      'Thalia Bass',
+      'Yusuf Burke',
+      'Johnny Welsh',
+      'Yasin May',
+      'Spencer Nixon',
+      'Sanaa Sanders',
+      'Darius Barnes',
+      'Chloe Ellis',
+      'Jack Solis',
+      'Subhan Maddox',
+      'Chris Winter',
+      'Genevieve Reeves',
+      'Libbie Peters',
+      'Myles Delacruz',
+    ];
+    return names[Math.floor(Math.random() * names.length)];
+  }
 }

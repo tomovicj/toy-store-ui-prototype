@@ -9,7 +9,29 @@
     "manufactureDate": "2024-03-10",
     "price": 1499,
     "imageUrl": "/img/1.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r1-1",
+        "customerId": "c101",
+        "rating": 5,
+        "comment": "Perfect for my 4-year-old! Great quality wood.",
+        "date": "2024-09-15T10:30:00Z"
+      },
+      {
+        "id": "r1-2",
+        "customerId": "c102",
+        "rating": 4,
+        "comment": "Nice puzzle, but pieces are a bit large.",
+        "date": "2024-09-20T14:22:00Z"
+      },
+      {
+        "id": "r1-3",
+        "customerId": "c103",
+        "rating": 5,
+        "comment": "Educational and fun. Highly recommend!",
+        "date": "2024-10-01T09:15:00Z"
+      }
+    ]
   },
   {
     "id": "2",
@@ -21,7 +43,22 @@
     "manufactureDate": "2023-11-15",
     "price": 899,
     "imageUrl": "/img/2.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r2-1",
+        "customerId": "c104",
+        "rating": 5,
+        "comment": "My baby loves the bright colors!",
+        "date": "2024-08-10T11:00:00Z"
+      },
+      {
+        "id": "r2-2",
+        "customerId": "c105",
+        "rating": 4,
+        "comment": "Good book, pages are durable.",
+        "date": "2024-09-05T16:45:00Z"
+      }
+    ]
   },
   {
     "id": "3",
@@ -33,7 +70,29 @@
     "manufactureDate": "2024-02-05",
     "price": 1899,
     "imageUrl": "/img/3.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r3-1",
+        "customerId": "c106",
+        "rating": 5,
+        "comment": "Son plays with it every day!",
+        "date": "2024-09-18T13:20:00Z"
+      },
+      {
+        "id": "r3-2",
+        "customerId": "c107",
+        "rating": 3,
+        "comment": "Good but joints are a bit loose.",
+        "date": "2024-09-25T10:10:00Z"
+      },
+      {
+        "id": "r3-3",
+        "customerId": "c108",
+        "rating": 4,
+        "comment": "Nice detail on the figure.",
+        "date": "2024-10-05T15:30:00Z"
+      }
+    ]
   },
   {
     "id": "4",
@@ -45,7 +104,15 @@
     "manufactureDate": "2023-10-22",
     "price": 1199,
     "imageUrl": "/img/4.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r4-1",
+        "customerId": "c109",
+        "rating": 5,
+        "comment": "Great set for the price!",
+        "date": "2024-08-20T12:00:00Z"
+      }
+    ]
   },
   {
     "id": "5",
@@ -57,7 +124,22 @@
     "manufactureDate": "2024-04-01",
     "price": 2299,
     "imageUrl": "/img/5.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r5-1",
+        "customerId": "c110",
+        "rating": 5,
+        "comment": "Sturdy and well-made. Ladder works great!",
+        "date": "2024-09-12T14:45:00Z"
+      },
+      {
+        "id": "r5-2",
+        "customerId": "c111",
+        "rating": 5,
+        "comment": "Best fire truck toy we've bought!",
+        "date": "2024-09-28T11:20:00Z"
+      }
+    ]
   },
   {
     "id": "6",
@@ -81,7 +163,29 @@
     "manufactureDate": "2023-09-12",
     "price": 3499,
     "imageUrl": "/img/7.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r7-1",
+        "customerId": "c112",
+        "rating": 5,
+        "comment": "Perfect for family game night!",
+        "date": "2024-08-15T19:00:00Z"
+      },
+      {
+        "id": "r7-2",
+        "customerId": "c113",
+        "rating": 4,
+        "comment": "Kids love it, easier than regular Monopoly.",
+        "date": "2024-09-10T17:30:00Z"
+      },
+      {
+        "id": "r7-3",
+        "customerId": "c114",
+        "rating": 5,
+        "comment": "Great way to teach money management!",
+        "date": "2024-09-22T20:15:00Z"
+      }
+    ]
   },
   {
     "id": "8",
@@ -93,7 +197,22 @@
     "manufactureDate": "2024-05-20",
     "price": 4999,
     "imageUrl": "/img/8.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r8-1",
+        "customerId": "c115",
+        "rating": 5,
+        "comment": "Endless creativity! Worth every penny.",
+        "date": "2024-09-08T10:00:00Z"
+      },
+      {
+        "id": "r8-2",
+        "customerId": "c116",
+        "rating": 5,
+        "comment": "Kids build something new every day.",
+        "date": "2024-09-19T14:30:00Z"
+      }
+    ]
   },
   {
     "id": "9",
@@ -105,7 +224,29 @@
     "manufactureDate": "2023-12-08",
     "price": 2199,
     "imageUrl": "/img/9.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r9-1",
+        "customerId": "c117",
+        "rating": 4,
+        "comment": "Fun but can be a bit loud!",
+        "date": "2024-08-25T13:15:00Z"
+      },
+      {
+        "id": "r9-2",
+        "customerId": "c118",
+        "rating": 5,
+        "comment": "Great for developing rhythm skills.",
+        "date": "2024-09-14T16:00:00Z"
+      },
+      {
+        "id": "r9-3",
+        "customerId": "c119",
+        "rating": 4,
+        "comment": "Lights are awesome, my kid loves it!",
+        "date": "2024-10-02T11:45:00Z"
+      }
+    ]
   },
   {
     "id": "10",
@@ -117,7 +258,22 @@
     "manufactureDate": "2024-06-25",
     "price": 6799,
     "imageUrl": "/img/10.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r10-1",
+        "customerId": "c120",
+        "rating": 5,
+        "comment": "Amazing educational tool! Highly recommended.",
+        "date": "2024-09-03T12:00:00Z"
+      },
+      {
+        "id": "r10-2",
+        "customerId": "c121",
+        "rating": 5,
+        "comment": "Kids learn geography while having fun.",
+        "date": "2024-09-16T15:20:00Z"
+      }
+    ]
   },
   {
     "id": "11",
@@ -129,7 +285,22 @@
     "manufactureDate": "2024-01-10",
     "price": 1299,
     "imageUrl": "/img/11.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r11-1",
+        "customerId": "c122",
+        "rating": 5,
+        "comment": "Perfect for teaching the alphabet!",
+        "date": "2024-08-18T10:30:00Z"
+      },
+      {
+        "id": "r11-2",
+        "customerId": "c123",
+        "rating": 4,
+        "comment": "Good quality, my daughter loves it.",
+        "date": "2024-09-11T13:00:00Z"
+      }
+    ]
   },
   {
     "id": "12",
@@ -141,7 +312,15 @@
     "manufactureDate": "2023-08-05",
     "price": 799,
     "imageUrl": "/img/12.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r12-1",
+        "customerId": "c124",
+        "rating": 5,
+        "comment": "Beautiful photos, baby is fascinated!",
+        "date": "2024-09-07T09:15:00Z"
+      }
+    ]
   },
   {
     "id": "13",
@@ -153,7 +332,29 @@
     "manufactureDate": "2023-12-12",
     "price": 1799,
     "imageUrl": "/img/13.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r13-1",
+        "customerId": "c125",
+        "rating": 5,
+        "comment": "Very realistic! Son loves dinosaurs.",
+        "date": "2024-08-22T14:00:00Z"
+      },
+      {
+        "id": "r13-2",
+        "customerId": "c126",
+        "rating": 4,
+        "comment": "Good detail and sturdy construction.",
+        "date": "2024-09-13T11:30:00Z"
+      },
+      {
+        "id": "r13-3",
+        "customerId": "c127",
+        "rating": 5,
+        "comment": "Best T-Rex toy we've found!",
+        "date": "2024-10-04T16:45:00Z"
+      }
+    ]
   },
   {
     "id": "14",
@@ -165,7 +366,22 @@
     "manufactureDate": "2024-02-25",
     "price": 1499,
     "imageUrl": "/img/14.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r14-1",
+        "customerId": "c128",
+        "rating": 4,
+        "comment": "Kids have fun creating different shapes.",
+        "date": "2024-09-09T12:20:00Z"
+      },
+      {
+        "id": "r14-2",
+        "customerId": "c129",
+        "rating": 5,
+        "comment": "Clay doesn't dry out quickly. Great value!",
+        "date": "2024-09-26T15:00:00Z"
+      }
+    ]
   },
   {
     "id": "15",
@@ -177,7 +393,22 @@
     "manufactureDate": "2024-03-14",
     "price": 1999,
     "imageUrl": "/img/15.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r15-1",
+        "customerId": "c130",
+        "rating": 5,
+        "comment": "Son plays with it for hours!",
+        "date": "2024-09-04T10:45:00Z"
+      },
+      {
+        "id": "r15-2",
+        "customerId": "c131",
+        "rating": 4,
+        "comment": "Trailer detaches easily, good feature.",
+        "date": "2024-09-21T13:30:00Z"
+      }
+    ]
   },
   {
     "id": "16",
@@ -189,7 +420,29 @@
     "manufactureDate": "2023-09-19",
     "price": 1699,
     "imageUrl": "/img/16.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r16-1",
+        "customerId": "c132",
+        "rating": 5,
+        "comment": "Daughter sleeps with it every night!",
+        "date": "2024-08-12T20:00:00Z"
+      },
+      {
+        "id": "r16-2",
+        "customerId": "c133",
+        "rating": 5,
+        "comment": "Soft and adorable. Sequins are secure.",
+        "date": "2024-09-17T11:00:00Z"
+      },
+      {
+        "id": "r16-3",
+        "customerId": "c134",
+        "rating": 4,
+        "comment": "Very cute but slightly smaller than expected.",
+        "date": "2024-10-01T14:15:00Z"
+      }
+    ]
   },
   {
     "id": "17",
@@ -201,7 +454,15 @@
     "manufactureDate": "2023-10-01",
     "price": 1299,
     "imageUrl": "/img/17.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r17-1",
+        "customerId": "c135",
+        "rating": 5,
+        "comment": "Classic game, well made board.",
+        "date": "2024-08-28T18:30:00Z"
+      }
+    ]
   },
   {
     "id": "18",
@@ -213,7 +474,22 @@
     "manufactureDate": "2024-07-15",
     "price": 6999,
     "imageUrl": "/img/18.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r18-1",
+        "customerId": "c136",
+        "rating": 5,
+        "comment": "Fantastic set! Took hours to build.",
+        "date": "2024-09-02T16:00:00Z"
+      },
+      {
+        "id": "r18-2",
+        "customerId": "c137",
+        "rating": 5,
+        "comment": "So many details, son loves it!",
+        "date": "2024-09-23T12:45:00Z"
+      }
+    ]
   },
   {
     "id": "19",
@@ -225,7 +501,29 @@
     "manufactureDate": "2024-01-09",
     "price": 2899,
     "imageUrl": "/img/19.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r19-1",
+        "customerId": "c138",
+        "rating": 4,
+        "comment": "Nice piano, sound quality is decent.",
+        "date": "2024-08-30T15:30:00Z"
+      },
+      {
+        "id": "r19-2",
+        "customerId": "c139",
+        "rating": 5,
+        "comment": "Daughter is learning to play songs!",
+        "date": "2024-09-15T10:00:00Z"
+      },
+      {
+        "id": "r19-3",
+        "customerId": "c140",
+        "rating": 4,
+        "comment": "Good starter piano for young kids.",
+        "date": "2024-10-03T13:20:00Z"
+      }
+    ]
   },
   {
     "id": "20",
@@ -237,7 +535,22 @@
     "manufactureDate": "2024-06-05",
     "price": 4999,
     "imageUrl": "/img/20.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r20-1",
+        "customerId": "c141",
+        "rating": 5,
+        "comment": "Sparked interest in science!",
+        "date": "2024-09-01T11:30:00Z"
+      },
+      {
+        "id": "r20-2",
+        "customerId": "c142",
+        "rating": 4,
+        "comment": "Good quality for the price.",
+        "date": "2024-09-18T14:00:00Z"
+      }
+    ]
   },
   {
     "id": "21",
@@ -249,7 +562,22 @@
     "manufactureDate": "2024-05-05",
     "price": 1299,
     "imageUrl": "/img/21.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r21-1",
+        "customerId": "c143",
+        "rating": 5,
+        "comment": "Son loves vehicles, perfect puzzle!",
+        "date": "2024-09-06T10:15:00Z"
+      },
+      {
+        "id": "r21-2",
+        "customerId": "c144",
+        "rating": 4,
+        "comment": "Well-made wooden pieces.",
+        "date": "2024-09-24T12:00:00Z"
+      }
+    ]
   },
   {
     "id": "22",
@@ -261,7 +589,29 @@
     "manufactureDate": "2023-07-28",
     "price": 899,
     "imageUrl": "/img/22.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r22-1",
+        "customerId": "c145",
+        "rating": 5,
+        "comment": "Great for early number learning!",
+        "date": "2024-08-14T09:45:00Z"
+      },
+      {
+        "id": "r22-2",
+        "customerId": "c146",
+        "rating": 5,
+        "comment": "Colorful and engaging for toddlers.",
+        "date": "2024-09-12T11:30:00Z"
+      },
+      {
+        "id": "r22-3",
+        "customerId": "c147",
+        "rating": 4,
+        "comment": "Good value, pages are thick.",
+        "date": "2024-10-06T15:00:00Z"
+      }
+    ]
   },
   {
     "id": "23",
@@ -273,7 +623,15 @@
     "manufactureDate": "2024-02-22",
     "price": 1699,
     "imageUrl": "/img/23.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r23-1",
+        "customerId": "c148",
+        "rating": 5,
+        "comment": "Beautiful dress details!",
+        "date": "2024-09-10T13:45:00Z"
+      }
+    ]
   },
   {
     "id": "24",
@@ -285,7 +643,22 @@
     "manufactureDate": "2023-10-15",
     "price": 1099,
     "imageUrl": "/img/24.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r24-1",
+        "customerId": "c149",
+        "rating": 4,
+        "comment": "Nice variety of colors.",
+        "date": "2024-08-19T10:00:00Z"
+      },
+      {
+        "id": "r24-2",
+        "customerId": "c150",
+        "rating": 5,
+        "comment": "Keeps kids entertained for hours!",
+        "date": "2024-09-14T14:30:00Z"
+      }
+    ]
   },
   {
     "id": "25",
@@ -297,7 +670,29 @@
     "manufactureDate": "2024-04-22",
     "price": 2599,
     "imageUrl": "/img/25.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r25-1",
+        "customerId": "c151",
+        "rating": 5,
+        "comment": "Sleek design, doors open smoothly.",
+        "date": "2024-09-08T12:30:00Z"
+      },
+      {
+        "id": "r25-2",
+        "customerId": "c152",
+        "rating": 4,
+        "comment": "Good quality metal car.",
+        "date": "2024-09-27T16:15:00Z"
+      },
+      {
+        "id": "r25-3",
+        "customerId": "c153",
+        "rating": 5,
+        "comment": "Best toy car in our collection!",
+        "date": "2024-10-08T11:00:00Z"
+      }
+    ]
   },
   {
     "id": "26",
@@ -309,7 +704,22 @@
     "manufactureDate": "2023-11-11",
     "price": 1799,
     "imageUrl": "/img/26.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r26-1",
+        "customerId": "c154",
+        "rating": 5,
+        "comment": "The purring feature is adorable!",
+        "date": "2024-08-16T13:00:00Z"
+      },
+      {
+        "id": "r26-2",
+        "customerId": "c155",
+        "rating": 4,
+        "comment": "Very soft, daughter loves it.",
+        "date": "2024-09-19T10:30:00Z"
+      }
+    ]
   },
   {
     "id": "27",
@@ -321,7 +731,15 @@
     "manufactureDate": "2024-01-04",
     "price": 999,
     "imageUrl": "/img/27.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r27-1",
+        "customerId": "c156",
+        "rating": 5,
+        "comment": "Great for memory development!",
+        "date": "2024-09-11T15:45:00Z"
+      }
+    ]
   },
   {
     "id": "28",
@@ -333,7 +751,29 @@
     "manufactureDate": "2024-07-02",
     "price": 5999,
     "imageUrl": "/img/28.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r28-1",
+        "customerId": "c157",
+        "rating": 5,
+        "comment": "Amazing set with so many possibilities!",
+        "date": "2024-09-05T14:00:00Z"
+      },
+      {
+        "id": "r28-2",
+        "customerId": "c158",
+        "rating": 5,
+        "comment": "Kids built an entire city!",
+        "date": "2024-09-20T16:30:00Z"
+      },
+      {
+        "id": "r28-3",
+        "customerId": "c159",
+        "rating": 4,
+        "comment": "Great value for 500 pieces.",
+        "date": "2024-10-07T12:15:00Z"
+      }
+    ]
   },
   {
     "id": "29",
@@ -345,7 +785,22 @@
     "manufactureDate": "2024-03-20",
     "price": 1499,
     "imageUrl": "/img/29.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r29-1",
+        "customerId": "c160",
+        "rating": 4,
+        "comment": "Fun instrument, nice jingle sound.",
+        "date": "2024-08-21T11:15:00Z"
+      },
+      {
+        "id": "r29-2",
+        "customerId": "c161",
+        "rating": 5,
+        "comment": "Perfect for little musicians!",
+        "date": "2024-09-16T13:45:00Z"
+      }
+    ]
   },
   {
     "id": "30",
@@ -357,6 +812,28 @@
     "manufactureDate": "2024-08-01",
     "price": 3999,
     "imageUrl": "/img/30.png",
-    "reviews": []
+    "reviews": [
+      {
+        "id": "r30-1",
+        "customerId": "c162",
+        "rating": 5,
+        "comment": "Educational and fun! Worth it.",
+        "date": "2024-09-13T10:00:00Z"
+      },
+      {
+        "id": "r30-2",
+        "customerId": "c163",
+        "rating": 4,
+        "comment": "Kids are learning while playing.",
+        "date": "2024-09-25T14:20:00Z"
+      },
+      {
+        "id": "r30-3",
+        "customerId": "c164",
+        "rating": 5,
+        "comment": "Great educational tool for young kids!",
+        "date": "2024-10-09T16:00:00Z"
+      }
+    ]
   }
 ]
