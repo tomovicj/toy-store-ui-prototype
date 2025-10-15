@@ -1,28 +1,26 @@
 @if (toy()) {
 <div class="card my-5">
-  <div class="card-body p-0">
-    <div class="row m-0">
-      <div class="col p-0">
-        <img [src]="toy()!.imageUrl" class="img-fluid" alt="Image of {{ toy()!.name }}" />
-      </div>
-      <div class="col p-3 d-flex flex-column justify-content-between">
-        <div>
-          <h2 class="card-title">{{ toy()!.name }}</h2>
-          <p class="card-text">{{ toy()!.description }}</p>
-          <p class="card-text"><strong>Category: </strong>{{ toy()!.category }}</p>
-          <p class="card-text"><strong>Age Range:</strong> {{ toy()!.forAgeGroup }}</p>
-          <p class="card-text text-capitalize"><strong>Gender:</strong> {{ toy()!.forGender }}</p>
-          <p class="card-text"><strong>Manufacture Date:</strong> {{ utilService.formatDate(toy()!.manufactureDate) }}
-          </p>
-          <p class="card-text"><strong>Price:</strong> {{ utilService.formatPrice(toy()!.price) }}</p>
+  <div class="row">
+    <div class="col-md-6">
+      <img [src]="toy()!.imageUrl" class="img-fluid" alt="Image of {{ toy()!.name }}" />
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h2 class="card-title">{{ toy()!.name }}</h2>
+        <p class="card-text">{{ toy()!.description }}</p>
+        <div class="d-flex gap-1 flex-wrap">
+          <span class="badge rounded-pill text-bg-secondary">{{ toy()!.category }}</span>
+          <span class="badge rounded-pill text-bg-secondary">{{ toy()!.forAgeGroup }} years</span>
+          <span class="badge rounded-pill text-bg-secondary text-capitalize">{{ toy()!.forGender }}</span>
+          <span class="badge rounded-pill text-bg-secondary">Manufactured: {{
+            utilService.formatDate(toy()!.manufactureDate) }}</span>
         </div>
-        <div>
-          <form class="input-group" [formGroup]="reservationForm" (ngSubmit)="onReserve()">
-            <input type="number" min="1" class="form-control" aria-label="Quantity" formControlName="quantity">
-            <button class="btn btn-primary w-75" type="submit">
-              <i class="bi bi-cart-plus"></i> Reserve
-            </button>
-          </form>
+        <div class="d-flex justify-content-between align-items-center mt-5">
+          <p class="card-text m-0 fs-5"><strong>Price:</strong> {{ utilService.formatPrice(toy()!.price) }}</p>
+          <p class="card-text m-0 fs-5">3.5 / 5 <i class="bi bi-star-fill text-warning"></i></p>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-primary w-100 me-2">Add to Cart</button>
         </div>
       </div>
     </div>

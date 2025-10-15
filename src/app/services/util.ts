@@ -17,7 +17,7 @@ export class UtilService {
     const date = new Date(dateString);
     return date.toLocaleDateString('sr-RS', {
       year: 'numeric',
-      month: 'long',
+      month: 'numeric',
       day: 'numeric',
     });
   }
