@@ -23,7 +23,12 @@
             <p class="card-text m-0 fs-5">{{ getAverageRating() }} / 5 <i class="bi bi-star-fill text-warning"></i></p>
           </div>
           <div class="mt-3">
-            <button class="btn btn-primary w-100">Add to Cart</button>
+            <form [formGroup]="reservationForm" (ngSubmit)="onReserve()" class="input-group d-flex">
+              <input type="number" class="form-control" min="1" step="1"
+                formControlName="quantity" style="max-width: 100px;"
+                [class.is-invalid]="(reservationForm.get('quantity')?.invalid && reservationForm.get('quantity')?.touched)" />
+              <button type="submit" class="btn btn-primary flex-grow-1">Add to Cart</button>
+            </form>
           </div>
         </div>
       </div>

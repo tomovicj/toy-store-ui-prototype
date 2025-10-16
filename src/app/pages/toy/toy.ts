@@ -5,6 +5,8 @@ import { ToyService } from '../../services/toy';
 import { UtilService } from '../../services/util';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToyReviews } from '../../components/toy-reviews/toy-reviews';
+import { AuthService } from '../../services/auth';
+import { CustomerService } from '../../services/customer';
 
 @Component({
   selector: 'app-toy',
@@ -26,6 +28,8 @@ export class ToyPage implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private toyService: ToyService,
+    private customerService: CustomerService,
+    private authService: AuthService,
     public utilService: UtilService
   ) {}
 
@@ -43,12 +47,26 @@ export class ToyPage implements OnInit {
   }
 
   onReserve() {
+    const customer = this.authService.getLoggedInCustomer();
+    if (!customer) {
+      this.router.navigateByUrl('/login');
+      return;
+    }
+
     if (this.reservationForm.invalid) {
       this.reservationForm.markAllAsTouched();
       return;
     }
 
-    // TODO
+    this.customerService.reserveToy(
+      customer.id,
+      this.toy()!.id,
+      parseInt(this.reservationForm.value.quantity!)
+    );
+
+    this.reservationForm.reset({ quantity: '1' });
+    this.reservationForm.markAsUntouched();
+    alert('Toy added to cart!'); // TODO: Replace with better notification
   }
 
   getAverageRating() {
