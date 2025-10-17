@@ -8,7 +8,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-03-10",
     "price": 1499,
-    "imageUrl": "/img/1.png",
+    "imageUrl": "img/1.png",
     "reviews": [
       {
         "id": "r1-1",
@@ -42,7 +42,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-11-15",
     "price": 899,
-    "imageUrl": "/img/2.png",
+    "imageUrl": "img/2.png",
     "reviews": [
       {
         "id": "r2-1",
@@ -69,7 +69,7 @@
     "forGender": "boy",
     "manufactureDate": "2024-02-05",
     "price": 1899,
-    "imageUrl": "/img/3.png",
+    "imageUrl": "img/3.png",
     "reviews": [
       {
         "id": "r3-1",
@@ -103,7 +103,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-10-22",
     "price": 1199,
-    "imageUrl": "/img/4.png",
+    "imageUrl": "img/4.png",
     "reviews": [
       {
         "id": "r4-1",
@@ -123,7 +123,7 @@
     "forGender": "boy",
     "manufactureDate": "2024-04-01",
     "price": 2299,
-    "imageUrl": "/img/5.png",
+    "imageUrl": "img/5.png",
     "reviews": [
       {
         "id": "r5-1",
@@ -150,7 +150,7 @@
     "forGender": "girl",
     "manufactureDate": "2024-01-30",
     "price": 1599,
-    "imageUrl": "/img/6.png",
+    "imageUrl": "img/6.png",
     "reviews": []
   },
   {
@@ -162,7 +162,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-09-12",
     "price": 3499,
-    "imageUrl": "/img/7.png",
+    "imageUrl": "img/7.png",
     "reviews": [
       {
         "id": "r7-1",
@@ -196,7 +196,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-05-20",
     "price": 4999,
-    "imageUrl": "/img/8.png",
+    "imageUrl": "img/8.png",
     "reviews": [
       {
         "id": "r8-1",
@@ -223,7 +223,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-12-08",
     "price": 2199,
-    "imageUrl": "/img/9.png",
+    "imageUrl": "img/9.png",
     "reviews": [
       {
         "id": "r9-1",
@@ -257,7 +257,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-06-25",
     "price": 6799,
-    "imageUrl": "/img/10.png",
+    "imageUrl": "img/10.png",
     "reviews": [
       {
         "id": "r10-1",
@@ -284,7 +284,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-01-10",
     "price": 1299,
-    "imageUrl": "/img/11.png",
+    "imageUrl": "img/11.png",
     "reviews": [
       {
         "id": "r11-1",
@@ -311,7 +311,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-08-05",
     "price": 799,
-    "imageUrl": "/img/12.png",
+    "imageUrl": "img/12.png",
     "reviews": [
       {
         "id": "r12-1",
@@ -331,7 +331,7 @@
     "forGender": "boy",
     "manufactureDate": "2023-12-12",
     "price": 1799,
-    "imageUrl": "/img/13.png",
+    "imageUrl": "img/13.png",
     "reviews": [
       {
         "id": "r13-1",
@@ -365,7 +365,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-02-25",
     "price": 1499,
-    "imageUrl": "/img/14.png",
+    "imageUrl": "img/14.png",
     "reviews": [
       {
         "id": "r14-1",
@@ -392,7 +392,7 @@
     "forGender": "boy",
     "manufactureDate": "2024-03-14",
     "price": 1999,
-    "imageUrl": "/img/15.png",
+    "imageUrl": "img/15.png",
     "reviews": [
       {
         "id": "r15-1",
@@ -419,7 +419,7 @@
     "forGender": "girl",
     "manufactureDate": "2023-09-19",
     "price": 1699,
-    "imageUrl": "/img/16.png",
+    "imageUrl": "img/16.png",
     "reviews": [
       {
         "id": "r16-1",
@@ -453,7 +453,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-10-01",
     "price": 1299,
-    "imageUrl": "/img/17.png",
+    "imageUrl": "img/17.png",
     "reviews": [
       {
         "id": "r17-1",
@@ -473,7 +473,7 @@
     "forGender": "boy",
     "manufactureDate": "2024-07-15",
     "price": 6999,
-    "imageUrl": "/img/18.png",
+    "imageUrl": "img/18.png",
     "reviews": [
       {
         "id": "r18-1",
@@ -500,7 +500,7 @@
     "forGender": "girl",
     "manufactureDate": "2024-01-09",
     "price": 2899,
-    "imageUrl": "/img/19.png",
+    "imageUrl": "img/19.png",
     "reviews": [
       {
         "id": "r19-1",
@@ -534,7 +534,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-06-05",
     "price": 4999,
-    "imageUrl": "/img/20.png",
+    "imageUrl": "img/20.png",
     "reviews": [
       {
         "id": "r20-1",
@@ -561,7 +561,7 @@
     "forGender": "boy",
     "manufactureDate": "2024-05-05",
     "price": 1299,
-    "imageUrl": "/img/21.png",
+    "imageUrl": "img/21.png",
     "reviews": [
       {
         "id": "r21-1",
@@ -588,7 +588,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-07-28",
     "price": 899,
-    "imageUrl": "/img/22.png",
+    "imageUrl": "img/22.png",
     "reviews": [
       {
         "id": "r22-1",
@@ -622,7 +622,7 @@
     "forGender": "girl",
     "manufactureDate": "2024-02-22",
     "price": 1699,
-    "imageUrl": "/img/23.png",
+    "imageUrl": "img/23.png",
     "reviews": [
       {
         "id": "r23-1",
@@ -642,7 +642,7 @@
     "forGender": "unisex",
     "manufactureDate": "2023-10-15",
     "price": 1099,
-    "imageUrl": "/img/24.png",
+    "imageUrl": "img/24.png",
     "reviews": [
       {
         "id": "r24-1",
@@ -669,7 +669,7 @@
     "forGender": "boy",
     "manufactureDate": "2024-04-22",
     "price": 2599,
-    "imageUrl": "/img/25.png",
+    "imageUrl": "img/25.png",
     "reviews": [
       {
         "id": "r25-1",
@@ -703,7 +703,7 @@
     "forGender": "girl",
     "manufactureDate": "2023-11-11",
     "price": 1799,
-    "imageUrl": "/img/26.png",
+    "imageUrl": "img/26.png",
     "reviews": [
       {
         "id": "r26-1",
@@ -730,7 +730,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-01-04",
     "price": 999,
-    "imageUrl": "/img/27.png",
+    "imageUrl": "img/27.png",
     "reviews": [
       {
         "id": "r27-1",
@@ -750,7 +750,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-07-02",
     "price": 5999,
-    "imageUrl": "/img/28.png",
+    "imageUrl": "img/28.png",
     "reviews": [
       {
         "id": "r28-1",
@@ -784,7 +784,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-03-20",
     "price": 1499,
-    "imageUrl": "/img/29.png",
+    "imageUrl": "img/29.png",
     "reviews": [
       {
         "id": "r29-1",
@@ -811,7 +811,7 @@
     "forGender": "unisex",
     "manufactureDate": "2024-08-01",
     "price": 3999,
-    "imageUrl": "/img/30.png",
+    "imageUrl": "img/30.png",
     "reviews": [
       {
         "id": "r30-1",

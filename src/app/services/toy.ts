@@ -12,7 +12,7 @@ export class ToyService {
     if (toys) return;
 
     this.http
-      .get<Toy[]>('/toys.json')
+      .get<Toy[]>('toys.json')
       .subscribe((data) => {
       localStorage.setItem('toys', JSON.stringify(data));
     });
