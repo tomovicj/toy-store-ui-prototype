@@ -24,7 +24,10 @@ jobs:
         run: bun install
 
       - name: Build Angular app
-        run: bun run build -- --configuration production
+        run: bun run build -- --configuration production --base-href /${{ github.event.repository.name }}/
+
+      - name: Copy index.html to 404.html for SPA routing
+        run: cp dist/toy-store-ui-prototype/browser/index.html dist/toy-store-ui-prototype/browser/404.html
 
       - name: Upload build output
         uses: actions/upload-pages-artifact@v3
