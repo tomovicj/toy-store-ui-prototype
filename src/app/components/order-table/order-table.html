@@ -1,0 +1,55 @@
+<div class="card mb-5">
+  <div class="card-header">
+    <h2>Order Table</h2>
+  </div>
+  <div class="card-body">
+    @if (orders().length === 0) {
+    <div class="alert alert-info m-0" role="alert">
+      No orders yet.
+    </div>
+    } @else {
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th scope="col" class="d-none d-md-table-cell"></th>
+          <th scope="col">Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Date</th>
+          <th scope="col">Status</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (order of orders(); track $index) {
+        <tr>
+          <td class="d-none d-md-table-cell"><img [src]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid"
+              style="max-width: 100px;"></td>
+          <td>{{ getToyName(order.toyId) }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ utilService.formatDate(order.orderDate) }}</td>
+          <td class="text-capitalize">{{ order.status }}</td>
+          <td>
+            @switch (order.status) {
+            @case ('reserved') {
+            <div class="btn-group" role="group">
+              <button class="btn btn-primary" (click)="orderArrived(order.id)">Arrived</button>
+              <button class="btn btn-danger" (click)="cancelOrder(order.id)">Cancel</button>
+            </div>
+            }
+            @case ('arrived') {
+              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal" [attr.data-bs-toy-id]="order.toyId">Rate a toy</button>
+            }
+            @default {
+              <span class="text-muted fst-italic">No actions available</span>
+            }
+          }
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+    }
+  </div>
+</div>
+
+<app-rate-a-toy />
