@@ -33,7 +33,7 @@
             @case ('reserved') {
             <div class="btn-group" role="group">
               <button class="btn btn-primary" (click)="orderArrived(order.id)">Arrived</button>
-              <button class="btn btn-danger" (click)="cancelOrder(order.id)">Cancel</button>
+              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal" [attr.data-bs-order-id]="order.id">Cancel</button>
             </div>
             }
             @case ('arrived') {
@@ -52,4 +52,5 @@
   </div>
 </div>
 
+<app-cancel-order (onCancel)="loadOrders()" />
 <app-rate-a-toy />
