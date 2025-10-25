@@ -24,7 +24,7 @@
         <tr>
           <td class="d-none d-md-table-cell"><img [src]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid"
               style="max-width: 100px;"></td>
-          <td>{{ getToyName(order.toyId) }}</td>
+          <td><a routerLink="/toy/{{ order.toyId }}" class="toy-name-link">{{ getToyName(order.toyId) }}</a></td>
           <td>{{ order.quantity }}</td>
           <td>{{ utilService.formatDate(order.orderDate) }}</td>
           <td class="text-capitalize">{{ order.status }}</td>

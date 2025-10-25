@@ -6,10 +6,11 @@ import { CustomerService } from '../../services/customer';
 import { AuthService } from '../../services/auth';
 import { RateAToy } from '../modals/rate-a-toy/rate-a-toy';
 import { CancelOrder } from "../modals/cancel-order/cancel-order";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order-table',
-  imports: [RateAToy, CancelOrder],
+  imports: [RouterLink, RateAToy, CancelOrder],
   templateUrl: './order-table.html',
   styleUrl: './order-table.css',
 })

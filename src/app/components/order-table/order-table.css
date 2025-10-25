@@ -1,0 +1,8 @@
+.toy-name-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.toy-name-link:hover {
+  text-decoration: underline;
+}
