@@ -58,7 +58,6 @@ export class AuthService {
 
     this.customerService.saveCustomer(customer);
 
-    this.login(data.email, data.password);
     return customer;
   }
 
