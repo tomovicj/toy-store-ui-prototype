@@ -47,6 +47,16 @@ export class OrderTable implements OnInit {
     return toy ? toy.imageUrl : '';
   }
 
+  isOrderReviewed(orderId: string): boolean {
+    const customer = this.authService.getLoggedInCustomer();
+    if (!customer) {
+      // This should not happen as the component is only accessible to logged-in users
+      throw new Error('No logged in customer');
+    }
+
+    return this.customerService.isOrderReviewed(customer.id, orderId);
+  }
+
   orderArrived(orderId: string): void {
     const customer = this.authService.getLoggedInCustomer();
     if (!customer) {

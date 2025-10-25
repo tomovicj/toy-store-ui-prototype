@@ -86,4 +86,23 @@ export class CustomerService {
     this.saveCustomer(customer);
     return order;
   }
+
+  isOrderReviewed(customerId: string, orderId: string): boolean {
+    const customer = this.getCustomerById(customerId);
+    if (!customer) {
+      throw new Error('Customer not found');
+    }
+
+    const order = customer.orders.find((o) => o.id === orderId);
+    if (!order) {
+      throw new Error('Order not found');
+    }
+
+    const toy = this.toyService.getToyById(order.toyId);
+    if (!toy) {
+      throw new Error('Toy not found');
+    }
+
+    return toy.reviews.some((review) => review.orderId === orderId);
+  }
 }

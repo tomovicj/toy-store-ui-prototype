@@ -11,6 +11,8 @@ import { CustomerService } from '../../../services/customer';
 import { AuthService } from '../../../services/auth';
 import { Modal } from 'bootstrap';
 import { UtilService } from '../../../services/util';
+import { ToyService } from '../../../services/toy';
+import { Toy } from '../../../models/toy';
 
 @Component({
   selector: 'app-cancel-order',
@@ -22,6 +24,7 @@ export class CancelOrder implements AfterViewInit {
   constructor(
     private authService: AuthService,
     private customerService: CustomerService,
+    private toyService: ToyService,
     private utilService: UtilService
   ) {}
 
@@ -30,6 +33,7 @@ export class CancelOrder implements AfterViewInit {
   @ViewChild('cancelOrderModal') modalElement!: ElementRef;
 
   orderId = signal<string | null>(null);
+  toy = signal<Toy | null>(null);
   private modalInstance: Modal | null = null;
 
   ngAfterViewInit() {
@@ -38,14 +42,20 @@ export class CancelOrder implements AfterViewInit {
 
     modal.addEventListener('show.bs.modal', (event: any) => {
       const button = event.relatedTarget;
+
       const orderId = button.getAttribute('data-bs-order-id');
       if (orderId) {
         this.orderId.set(orderId);
       }
+
+      const toyId = button.getAttribute('data-bs-toy-id');
+      if (toyId) {
+        this.toy.set(this.toyService.getToyById(toyId));
+      }
     });
-    // Auto-cleanup when modal hides
     modal.addEventListener('hidden.bs.modal', () => {
       this.orderId.set(null);
+      this.toy.set(null);
     });
   }
 

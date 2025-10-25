@@ -33,11 +33,16 @@
             @case ('reserved') {
             <div class="btn-group" role="group">
               <button class="btn btn-primary" (click)="orderArrived(order.id)">Arrived</button>
-              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal" [attr.data-bs-order-id]="order.id">Cancel</button>
+              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Cancel</button>
             </div>
             }
             @case ('arrived') {
-              <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal" [attr.data-bs-toy-id]="order.toyId">Rate a toy</button>
+              @if (isOrderReviewed(order.id)) {
+                <!-- TODO: review info modal -->
+                <span class="text-muted fst-italic">No actions available (Toy reviewed)</span>
+              } @else {
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Rate a toy</button>
+              }
             }
             @default {
               <span class="text-muted fst-italic">No actions available</span>
@@ -53,4 +58,4 @@
 </div>
 
 <app-cancel-order (onCancel)="loadOrders()" />
-<app-rate-a-toy />
+<app-rate-a-toy (onRated)="loadOrders()" />
