@@ -41,6 +41,12 @@ export class ToyService {
     return toy ? toy.reviews : [];
   }
 
+  getReviewByOrderId(toyId: string, orderId: string): Review | null {
+    const reviews = this.getReviews(toyId);
+    const review = reviews.find((review) => review.orderId === orderId);
+    return review || null;
+  }
+
   addReview(toyId: string, review: Review): void {
     const toy = this.getToyById(toyId);
     if (!toy) throw new Error('Toy not found');

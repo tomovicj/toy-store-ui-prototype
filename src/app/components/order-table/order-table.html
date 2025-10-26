@@ -38,8 +38,7 @@
             }
             @case ('arrived') {
               @if (isOrderReviewed(order.id)) {
-                <!-- TODO: review info modal -->
-                <span class="text-muted fst-italic">No actions available (Toy reviewed)</span>
+                <button class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#review-info-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">View Review</button>
               } @else {
                 <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Rate a toy</button>
               }
@@ -57,5 +56,7 @@
   </div>
 </div>
 
+<!-- Modals -->
 <app-cancel-order (onCancel)="loadOrders()" />
 <app-rate-a-toy (onRated)="loadOrders()" />
+<app-review-info />

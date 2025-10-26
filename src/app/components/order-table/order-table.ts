@@ -1,16 +1,17 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { Order } from '../../models/order';
+import { RouterLink } from '@angular/router';
 import { UtilService } from '../../services/util';
 import { ToyService } from '../../services/toy';
 import { CustomerService } from '../../services/customer';
 import { AuthService } from '../../services/auth';
+import { Order } from '../../models/order';
 import { RateAToy } from '../modals/rate-a-toy/rate-a-toy';
-import { CancelOrder } from "../modals/cancel-order/cancel-order";
-import { RouterLink } from '@angular/router';
+import { CancelOrder } from '../modals/cancel-order/cancel-order';
+import { ReviewInfo } from '../modals/review-info/review-info';
 
 @Component({
   selector: 'app-order-table',
-  imports: [RouterLink, RateAToy, CancelOrder],
+  imports: [RouterLink, RateAToy, CancelOrder, ReviewInfo],
   templateUrl: './order-table.html',
   styleUrl: './order-table.css',
 })

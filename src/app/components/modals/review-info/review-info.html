@@ -1,0 +1,22 @@
+<div #reviewInfoModal id="review-info-modal" class="modal" tabindex="-1" aria-labelledby="review-info-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="review-info-modal-label">Review Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-info">
+          <h3 class="fw-bold">{{ toy()?.name }}</h3>
+          <p class="fs-6 text-muted">{{ utilService.formatDate(review()?.date || "") }}</p>
+          <p class="fs-4 fw-bold">{{ review()?.rating }} / 5 <i class="bi bi-star-fill text-warning"></i></p>
+          <hr />
+          <p>{{ review()?.comment }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
