@@ -8,7 +8,13 @@
     <p><strong>Phone:</strong> {{ customer()!.phoneNumber }}</p>
     <p><strong>Address:</strong> {{ customer()!.address }}</p>
     <p><strong>Favorite Category:</strong> {{ customer()!.favoriteCategory }}</p>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#edit-profile-modal">
+      Edit Profile
+    </button>
   </div>
 </div>
 
 <app-order-table />
+
+<!-- Modal -->
+<app-edit-profile (onProfileUpdated)="loadCustomer()" />
