@@ -9,37 +9,51 @@
         </div>
         <div class="modal-body">
           <div class="mb-3">
-            <label for="first-name" class="form-label">First Name</label>
+            <label for="first-name" class="form-label">First Name
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('firstName')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <input type="text" class="form-control" id="first-name" required formControlName="firstName"
               [class.is-invalid]="form.get('firstName')?.invalid && form.get('firstName')?.touched">
           </div>
           <div class="mb-3">
-            <label for="last-name" class="form-label">Last Name</label>
+            <label for="last-name" class="form-label">Last Name
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('lastName')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <input type="text" class="form-control" id="last-name" required formControlName="lastName"
               [class.is-invalid]="form.get('lastName')?.invalid && form.get('lastName')?.touched">
           </div>
           <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
+            <label for="email" class="form-label">Email
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('email')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <input type="email" class="form-control" id="email" required formControlName="email"
               [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched">
           </div>
           <div class="mb-3">
-            <label for="phone-number" class="form-label">Phone Number</label>
+            <label for="phone-number" class="form-label">Phone Number
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('phoneNumber')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <input type="tel" class="form-control" id="phone-number" required formControlName="phoneNumber"
               [class.is-invalid]="form.get('phoneNumber')?.invalid && form.get('phoneNumber')?.touched">
           </div>
           <div class="mb-3">
-            <label for="address" class="form-label">Address</label>
+            <label for="address" class="form-label">Address
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('address')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <input type="text" class="form-control" id="address" required formControlName="address"
               [class.is-invalid]="form.get('address')?.invalid && form.get('address')?.touched">
           </div>
           <div class="mb-3">
-            <label for="favorite-category" class="form-label">Favorite Category</label>
+            <label for="favorite-category" class="form-label">Favorite Category
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('favoriteCategory')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <input type="text" class="form-control" id="favorite-category" required formControlName="favoriteCategory"
               [class.is-invalid]="form.get('favoriteCategory')?.invalid && form.get('favoriteCategory')?.touched">
           </div>
           <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
+            <label for="password" class="form-label">Password
+              <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('password')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
+            </label>
             <div class="input-group">
               <input [type]="showPassword() ? 'text' : 'password'" class="form-control" id="password"
               formControlName="password" aria-describedby="password-label"
@@ -73,9 +87,12 @@
           </div>
           }
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="modal-footer d-flex justify-content-between">
+          <button class="btn btn-outline-secondary" type="button" (click)="resetFieldValue()" data-bs-toggle="tooltip" data-bs-title="Reset all fields"><i class="bi bi-arrow-counterclockwise"></i></button>
+          <div>
+            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </div>
       </form>
     </div>

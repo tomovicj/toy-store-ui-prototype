@@ -4,15 +4,21 @@ import {
   ElementRef,
   EventEmitter,
   Output,
-  Signal,
   signal,
   ViewChild,
-  WritableSignal,
 } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
 import { Customer } from '../../../models/customer';
 import { AuthService } from '../../../services/auth';
-import { Modal } from 'bootstrap';
+import { Modal, Tooltip } from 'bootstrap';
 import { CustomerService } from '../../../services/customer';
 import { UtilService } from '../../../services/util';
 
@@ -70,6 +76,12 @@ export class EditProfile implements AfterViewInit {
   }
 
   ngAfterViewInit() {
+    // Initialize Bootstrap tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(
+      (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
+    );
+
     const modal = this.modalElement.nativeElement;
     this.modalInstance = new Modal(modal);
 
@@ -77,14 +89,7 @@ export class EditProfile implements AfterViewInit {
       const user = this.authService.getLoggedInCustomer();
       if (user) {
         this.user.set(user);
-        this.form.patchValue({
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-          phoneNumber: user.phoneNumber,
-          address: user.address,
-          favoriteCategory: user.favoriteCategory,
-        });
+        this.fillFormWithUserData();
       }
     });
 
@@ -95,7 +100,6 @@ export class EditProfile implements AfterViewInit {
   }
 
   onSubmit() {
-    console.log(this.form.valid)
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
@@ -129,11 +133,52 @@ export class EditProfile implements AfterViewInit {
     this.utilService.closeModal(this.modalInstance!);
   }
 
+  fillFormWithUserData() {
+    const user = this.user();
+    if (user) {
+      this.form.patchValue({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        phoneNumber: user.phoneNumber,
+        address: user.address,
+        favoriteCategory: user.favoriteCategory,
+      });
+    }
+  }
+
   toggleShowPassword() {
     this.showPassword.set(!this.showPassword());
   }
 
   toggleShowConfirmPassword() {
     this.showConfirmPassword.set(!this.showConfirmPassword());
+  }
+
+  resetFieldValue(
+    fieldName?: 'firstName' | 'lastName' | 'email' | 'phoneNumber' | 'address' | 'favoriteCategory' | 'password') {
+    const resetPasswords = () => {
+      this.form.get('password')?.setValue('');
+      this.form.get('confirmPassword')?.setValue('');
+
+      this.showPassword.set(false);
+      this.showConfirmPassword.set(false);
+    }
+
+    if (!fieldName) {
+      this.fillFormWithUserData();
+      resetPasswords();
+      return;
+    }
+
+    if (fieldName === 'password') {
+      resetPasswords();
+      return;
+    }
+
+    const user = this.user();
+    if (user) {
+      this.form.get(fieldName)?.setValue(user[fieldName]);
+    }
   }
 }
