@@ -15,9 +15,14 @@
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password"
-              [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched) || form.hasError('invalidCredentials')"
-              class="form-control" id="password" formControlName="password">
+            <div class="input-group">
+              <input [type]="showPassword() ? 'text' : 'password'"
+                [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched) || form.hasError('invalidCredentials')"
+                class="form-control" id="password" formControlName="password">
+              <button class="btn btn-outline-secondary" type="button" (click)="toggleShowPassword()">
+                <i class="bi" [class]="showPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+            </div>
           </div>
           <a routerLink="/signup" class="btn btn-link p-0 text-muted">Don't have an account?</a>
           <button type="submit" class="btn btn-primary float-end">Submit</button>

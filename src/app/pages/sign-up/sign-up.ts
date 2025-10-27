@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { AuthService, SignUpData } from '../../services/auth';
 import { Router, RouterLink } from '@angular/router';
 import {
@@ -17,8 +17,10 @@ import {
 export class SignUp {
   constructor(private authService: AuthService, private router: Router) {}
 
-  form = new FormGroup(
-    {
+  showPassword = signal<boolean>(false);
+  showConfirmPassword = signal<boolean>(false);
+
+  form = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -59,5 +61,13 @@ export class SignUp {
     this.authService.login(newCustomer.email, newCustomer.password);
 
     this.router.navigateByUrl('/');
+  }
+
+  toggleShowPassword() {
+    this.showPassword.set(!this.showPassword());
+  }
+
+  toggleShowConfirmPassword() {
+    this.showConfirmPassword.set(!this.showConfirmPassword());
   }
 }

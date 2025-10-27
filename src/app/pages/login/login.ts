@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth';
@@ -11,6 +11,8 @@ import { AuthService } from '../../services/auth';
 })
 export class Login {
   constructor(private authService: AuthService, private router: Router) {}
+
+  showPassword = signal<boolean>(false);
 
   form = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
@@ -30,5 +32,9 @@ export class Login {
     }
 
     this.router.navigateByUrl('/');
+  }
+
+  toggleShowPassword() {
+    this.showPassword.set(!this.showPassword());
   }
 }
