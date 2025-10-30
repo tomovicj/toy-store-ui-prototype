@@ -56,6 +56,8 @@ export class SignUp {
       return;
     }
 
+    this.authService.login(newCustomer.email, newCustomer.password);
+
     this.router.navigateByUrl('/');
   }
 }

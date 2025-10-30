@@ -7,6 +7,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ToyReviews } from '../../components/toy-reviews/toy-reviews';
 import { AuthService } from '../../services/auth';
 import { CustomerService } from '../../services/customer';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-toy',
@@ -26,6 +27,7 @@ export class ToyPage implements OnInit {
 
   constructor(
     private router: Router,
+    private location: Location,
     private route: ActivatedRoute,
     private toyService: ToyService,
     private customerService: CustomerService,
@@ -44,6 +46,10 @@ export class ToyPage implements OnInit {
     }
 
     this.router.navigateByUrl('/');
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 
   onReserve() {

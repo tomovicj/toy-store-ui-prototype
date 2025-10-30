@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Modal } from 'bootstrap';
 
 @Injectable({
   providedIn: 'root',
@@ -46,5 +47,17 @@ export class UtilService {
       'Myles Delacruz',
     ];
     return names[Math.floor(Math.random() * names.length)];
+  }
+
+  closeModal(modalInstance: Modal): void {
+    modalInstance.hide();
+
+    // Cleanup modal styles
+    document.body.classList.remove('modal-open');
+    document.body.style.overflow = '';
+    document.body.style.paddingRight = '';
+    document.querySelectorAll('.modal-backdrop').forEach((backdrop) => {
+      backdrop.remove();
+    });
   }
 }

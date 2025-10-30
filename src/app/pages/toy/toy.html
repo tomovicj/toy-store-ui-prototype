@@ -1,5 +1,9 @@
 @if (toy()) {
-<div class="card mt-5 mb-3">
+<span (click)="navigateBack()" class="link fw-bold fs-5">
+  <i class="bi bi-arrow-left"></i>
+  Back
+</span>
+<div class="card my-3">
   <div class="row">
     <div class="col-lg-4">
       <img [src]="toy()!.imageUrl" class="img-fluid" alt="Image of {{ toy()!.name }}" />

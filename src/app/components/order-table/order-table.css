@@ -1,9 +1,8 @@
-.link {
+.toy-name-link {
   text-decoration: none;
   color: inherit;
 }
 
-.link:hover {
+.toy-name-link:hover {
   text-decoration: underline;
-  cursor: pointer;
 }

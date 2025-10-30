@@ -1,0 +1,39 @@
+<div #rateAToyModal class="modal" id="rate-a-toy-modal" tabindex="-1" aria-labelledby="rate-a-toy-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h5 class="modal-title" id="rate-a-toy-modal-label">Rate a toy</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          @if (toy()) {
+            <div class="alert alert-info" role="alert">
+              You are rating: <strong>{{ toy()!.name }}</strong>
+            </div>
+          }
+          <div class="mb-3">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="number" class="form-control" id="rating" min="1" max="5" formControlName="rating" required
+              [class.is-invalid]="form.get('rating')?.invalid && form.get('rating')?.touched">
+            <div class="form-text" [class.text-danger]="(form.get('rating')?.invalid && form.get('rating')?.touched)">
+              Rate the toy from 1 to 5 stars.
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="review" class="form-label">Review</label>
+            <textarea class="form-control" id="review" rows="3" formControlName="review" required
+              [class.is-invalid]="form.get('review')?.invalid && form.get('review')?.touched"></textarea>
+            <div class="form-text" [class.text-danger]="(form.get('review')?.invalid && form.get('review')?.touched)">
+              Write your review of the toy.
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
