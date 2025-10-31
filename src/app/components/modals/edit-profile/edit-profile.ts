@@ -73,7 +73,11 @@ export class EditProfile implements AfterViewInit {
       if (!password || !confirmPassword) {
         return null;
       }
-      return password.value === confirmPassword.value ? null : { passwordMismatch: true };
+      if (password.value !== confirmPassword.value) {
+        confirmPassword.setErrors({ passwordMismatch: true });
+        return { passwordMismatch: true };
+      }
+      return null;
     };
   }
 

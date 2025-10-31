@@ -77,12 +77,12 @@
             <label for="confirm-password" class="form-label">Confirm Password</label>
             <div class="input-group">
               <input [type]="showConfirmPassword() ? 'text' : 'password'" class="form-control" id="confirm-password" formControlName="confirmPassword"
-                [class.is-invalid]="form.hasError('passwordMismatch') && form.get('confirmPassword')?.touched">
+                [class.is-invalid]="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched">
               <button class="btn btn-outline-secondary" type="button" (click)="toggleShowConfirmPassword()">
                 <i class="bi" [class]="showConfirmPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
               </button>
             </div>
-            @if (form.hasError('passwordMismatch') && form.get('confirmPassword')?.touched) {
+            @if (form.get('confirmPassword')?.hasError('passwordMismatch') && form.get('confirmPassword')?.touched) {
             <ul>
               <li class="text-danger">Passwords do not match</li>
             </ul>

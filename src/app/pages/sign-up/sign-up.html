@@ -22,7 +22,7 @@
             <input type="email"
               [class.is-invalid]="(form.get('email')?.invalid && form.get('email')?.touched) || form.hasError('emailInUse')"
               class="form-control" id="email" formControlName="email">
-            @if (form.hasError('emailInUse')) {
+            @if (form.get('email')?.hasError('emailInUse') && form.get('email')?.touched) {
             <ul>
               <li class="text-danger">Email is already in use</li>
             </ul>
@@ -43,13 +43,13 @@
             <label for="password" class="form-label">Password</label>
             <div class="input-group">
               <input [type]="showPassword() ? 'text' : 'password'"
-                [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched)"
+                [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched"
                 class="form-control" id="password" formControlName="password">
               <button class="btn btn-outline-secondary" type="button" (click)="toggleShowPassword()">
                 <i class="bi" [class]="showPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
               </button>
             </div>
-            @if (form.get('password')?.hasError('minlength')) {
+            @if (form.get('password')?.hasError('minlength') && form.get('password')?.touched) {
             <ul>
               <li class="text-danger">Password must be at least 6 characters long</li>
             </ul>
@@ -59,13 +59,13 @@
             <label for="confirm-password" class="form-label">Confirm Password</label>
             <div class="input-group">
               <input [type]="showConfirmPassword() ? 'text' : 'password'"
-                [class.is-invalid]="(form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched) || form.hasError('passwordMismatch')"
+                [class.is-invalid]="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched"
                 class="form-control" id="confirm-password" formControlName="confirmPassword">
               <button class="btn btn-outline-secondary" type="button" (click)="toggleShowConfirmPassword()">
                 <i class="bi" [class]="showConfirmPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
               </button>
             </div>
-            @if (form.hasError('passwordMismatch')) {
+            @if (form.get('confirmPassword')?.hasError('passwordMismatch') && form.get('confirmPassword')?.touched) {
             <ul>
               <li class="text-danger">Passwords do not match</li>
             </ul>
@@ -73,7 +73,8 @@
           </div>
           <div class="mb-3">
             <label for="favorite-toy-category" class="form-label">Favorite Toy Category</label>
-            <select class="form-select" id="favorite-toy-category" formControlName="favoriteCategory">
+            <select class="form-select" id="favorite-toy-category" formControlName="favoriteCategory"
+              [class.is-invalid]="(form.get('favoriteCategory')?.invalid && form.get('favoriteCategory')?.touched)">
               @for (category of getToyCategories(); track $index) {
                 <option [value]="category">{{ category }}</option>
               }
