@@ -5,8 +5,8 @@
       <div class="card-header">
         <h5 class="card-title">Sign Up</h5>
       </div>
-      <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card-body">
           <div class="mb-3">
             <label for="first-name" class="form-label">First Name</label>
             <input type="text" [class.is-invalid]="(form.get('firstName')?.invalid && form.get('firstName')?.touched)"
@@ -80,10 +80,12 @@
               <option value="3">Three</option>
             </select>
           </div>
+        </div>
+        <div class="card-footer d-flex justify-content-end align-items-center gap-3">
           <a routerLink="/login" class="btn btn-link p-0 text-muted">Already have an account?</a>
           <button type="submit" class="btn btn-primary float-end">Submit</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="col-3"></div>
