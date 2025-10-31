@@ -19,6 +19,7 @@
         "@angular/build": "^20.3.2",
         "@angular/cli": "^20.3.2",
         "@angular/compiler-cli": "^20.3.0",
+        "@types/bootstrap": "^5.2.10",
         "@types/jasmine": "~5.1.0",
         "jasmine-core": "~5.9.0",
         "karma": "~6.4.0",
@@ -404,6 +405,8 @@
     "@tufjs/canonical-json": ["@tufjs/canonical-json@2.0.0", "", {}, "sha512-yVtV8zsdo8qFHe+/3kw81dSLyF7D576A5cCFCi4X7B39tWT7SekaEFUnvnWJHz+9qO7qJTah1JbrDjWKqFtdWA=="],
 
     "@tufjs/models": ["@tufjs/models@3.0.1", "", { "dependencies": { "@tufjs/canonical-json": "2.0.0", "minimatch": "^9.0.5" } }, "sha512-UUYHISyhCU3ZgN8yaear3cGATHb3SMuKHsQ/nVbHXcmnBf+LzQ/cQfhNG+rfaSHgqGKNEm2cOCLVLELStUQ1JA=="],
+
+    "@types/bootstrap": ["@types/bootstrap@5.2.10", "", { "dependencies": { "@popperjs/core": "^2.9.2" } }, "sha512-F2X+cd6551tep0MvVZ6nM8v7XgGN/twpdNDjqS1TUM7YFNEtQYWk+dKAnH+T1gr6QgCoGMPl487xw/9hXooa2g=="],
 
     "@types/cors": ["@types/cors@2.8.19", "", { "dependencies": { "@types/node": "*" } }, "sha512-mFNylyeyqN93lfe/9CSxOGREz8cpzAhH+E93xJ4xWQf62V8sQ/24reV2nyzUWM6H6Xji+GGHpkbLe7pVoUEskg=="],
 
