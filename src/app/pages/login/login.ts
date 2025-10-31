@@ -1,7 +1,8 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth';
+import { Tooltip } from 'bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AuthService } from '../../services/auth';
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class Login {
+export class Login implements AfterViewInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   showPassword = signal<boolean>(false);
@@ -18,6 +19,14 @@ export class Login {
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
+
+  ngAfterViewInit() {
+    // Initialize Bootstrap tooltips
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    const tooltipList = [...tooltipTriggerList].map(
+      (tooltipTriggerEl) => new Tooltip(tooltipTriggerEl)
+    );
+  }
 
   onSubmit() {
     if (this.form.invalid) {
@@ -36,5 +45,13 @@ export class Login {
 
   toggleShowPassword() {
     this.showPassword.set(!this.showPassword());
+  }
+
+  fillExampleUserCredentials() {
+    const user = this.authService.getExampleUserInfo();
+    this.form.patchValue({
+      email: user.email,
+      password: user.password,
+    });
   }
 }

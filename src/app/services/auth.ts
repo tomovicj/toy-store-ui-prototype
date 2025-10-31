@@ -11,15 +11,7 @@ export class AuthService {
   constructor(private customerService: CustomerService) {
     const customers = this.customerService.getCustomers();
     if (customers.length === 0) {
-      this.signUp({
-        firstName: 'Example',
-        lastName: 'User',
-        email: 'example.user@email.com',
-        phoneNumber: '+38123456789',
-        address: '123 Main St',
-        favoriteCategory: '',
-        password: 'password',
-      });
+      this.signUp(this.getExampleUserInfo());
     }
   }
 
@@ -77,5 +69,17 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('loggedInCustomer');
+  }
+
+  getExampleUserInfo(): Omit<Customer, 'orders' | 'id'> {
+    return {
+      firstName: 'Example',
+      lastName: 'User',
+      email: 'example.user@email.com',
+      phoneNumber: '+38123456789',
+      address: '123 Main St',
+      favoriteCategory: '',
+      password: 'password',
+    };
   }
 }
