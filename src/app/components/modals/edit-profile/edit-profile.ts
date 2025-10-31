@@ -21,6 +21,7 @@ import { AuthService } from '../../../services/auth';
 import { Modal, Tooltip } from 'bootstrap';
 import { CustomerService } from '../../../services/customer';
 import { UtilService } from '../../../services/util';
+import { ToyService } from '../../../services/toy';
 
 @Component({
   selector: 'app-edit-profile',
@@ -32,6 +33,7 @@ export class EditProfile implements AfterViewInit {
   constructor(
     private authService: AuthService,
     private customerService: CustomerService,
+    private toyService: ToyService,
     private utilService: UtilService
   ) {}
 
@@ -145,6 +147,10 @@ export class EditProfile implements AfterViewInit {
         favoriteCategory: user.favoriteCategory,
       });
     }
+  }
+
+  getToyCategories(): string[] {
+    return this.toyService.getToyCategories();
   }
 
   toggleShowPassword() {

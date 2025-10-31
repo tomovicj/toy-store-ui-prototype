@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer';
 import { CustomerService } from './customer';
+import { ToyService } from './toy';
 
 export type SignUpData = Omit<Customer, 'id' | 'orders'>;
 
@@ -8,7 +9,7 @@ export type SignUpData = Omit<Customer, 'id' | 'orders'>;
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService: CustomerService, private toyService: ToyService) {
     const customers = this.customerService.getCustomers();
     if (customers.length === 0) {
       this.signUp(this.getExampleUserInfo());
@@ -71,14 +72,14 @@ export class AuthService {
     localStorage.removeItem('loggedInCustomer');
   }
 
-  getExampleUserInfo(): Omit<Customer, 'orders' | 'id'> {
+  getExampleUserInfo(): SignUpData {
     return {
       firstName: 'Example',
       lastName: 'User',
       email: 'example.user@email.com',
       phoneNumber: '+38123456789',
       address: '123 Main St',
-      favoriteCategory: '',
+      favoriteCategory: this.toyService.getToyCategories()[0],
       password: 'password',
     };
   }

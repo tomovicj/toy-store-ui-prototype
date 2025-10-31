@@ -61,4 +61,11 @@ export class ToyService {
     const avgRating = total / reviews.length;
     return Math.round(avgRating * 10) / 10;
   }
+
+  getToyCategories(): string[] {
+    const toys = this.getToys();
+    const categories = new Set<string>();
+    toys.forEach((toy) => categories.add(toy.category));
+    return Array.from(categories);
+  }
 }

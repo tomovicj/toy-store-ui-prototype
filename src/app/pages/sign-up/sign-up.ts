@@ -7,6 +7,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { ToyService } from '../../services/toy';
 
 @Component({
   selector: 'app-sign-up',
@@ -15,7 +16,7 @@ import {
   styleUrl: './sign-up.css',
 })
 export class SignUp {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private toyService: ToyService, private router: Router) {}
 
   showPassword = signal<boolean>(false);
   showConfirmPassword = signal<boolean>(false);
@@ -61,6 +62,10 @@ export class SignUp {
     this.authService.login(newCustomer.email, newCustomer.password);
 
     this.router.navigateByUrl('/');
+  }
+
+  getToyCategories(): string[] {
+    return this.toyService.getToyCategories();
   }
 
   toggleShowPassword() {
