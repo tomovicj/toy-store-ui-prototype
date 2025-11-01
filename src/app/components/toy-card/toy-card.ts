@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 import { Toy } from '../../models/toy';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CustomerService } from '../../services/customer';
@@ -33,6 +33,8 @@ export class ToyCard {
     reviews: [],
   });
 
+  @Output() reserved = new EventEmitter<{ toyId: string; quantity: number }>();
+
   form: FormGroup = new FormGroup({
     quantity: new FormControl(1, [
       Validators.required,
@@ -53,7 +55,12 @@ export class ToyCard {
       return;
     }
 
-    this.customerService.reserveToy(customer.id, this.toy().id, this.form.value.quantity);
+    const toyId = this.toy().id;
+    const quantity = this.form.value.quantity;
+
+    this.customerService.reserveToy(customer.id, toyId, quantity);
+    this.form.reset({ quantity: 1 });
+    this.reserved.emit({ toyId, quantity });
   }
 
   onClick(event: MouseEvent) {
