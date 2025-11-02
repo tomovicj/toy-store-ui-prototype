@@ -1,5 +1,8 @@
+<div class="mb-5 d-flex justify-content-end">
+  <app-toy-sort />
+</div>
 <div class="mb-5 d-flex flex-wrap gap-3 justify-content-center">
-  @for (toy of toys(); track toy.id; let i = $index) {
+  @for (toy of toys() | sortToys: sortOption(); track toy.id; let i = $index) {
   <app-toy-card [toy]="toy" (reserved)="onToyReserved($event)" [prioritizeImage]="i < 8" />
   }
 </div>

@@ -1,6 +1,6 @@
 <div class="toy-card border h-100 d-flex flex-column" style="max-width: 300px;" (click)="onClick($event)">
   <div>
-    <img [ngSrc]="toy().imageUrl" alt="{{ toy().name }}" class="img-fluid" width="1024" height="1024" [priority]="prioritizeImage()" />
+    <img [ngSrc]="toy().imageUrl" alt="{{ toy().name }}" class="img-fluid" width="1024" height="1024" />
   </div>
   <div class="p-3 flex-grow-1">
     <h3>{{ toy().name }}</h3>

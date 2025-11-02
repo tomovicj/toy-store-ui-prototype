@@ -1,0 +1,10 @@
+<div #dropdown class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()" data-bs-toggle="dropdown" aria-expanded="false">
+    <i class="bi bi-sort-down"></i> {{ getSelectedOptionLabel() }}
+  </button>
+  <ul class="dropdown-menu">
+    @for (option of sortOptions; track option.value) {
+      <li><button class="dropdown-item" (click)="selectOption(option.value)">{{ option.label }}</button></li>
+    }
+  </ul>
+</div>
