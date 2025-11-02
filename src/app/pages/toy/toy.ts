@@ -8,11 +8,11 @@ import { ToyReviews } from '../../components/toy-reviews/toy-reviews';
 import { ToyReserved } from '../../components/modals/toy-reserved/toy-reserved';
 import { AuthService } from '../../services/auth';
 import { CustomerService } from '../../services/customer';
-import { Location } from '@angular/common';
+import { Location, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-toy',
-  imports: [ReactiveFormsModule, ToyReviews, ToyReserved],
+  imports: [ReactiveFormsModule, ToyReviews, ToyReserved, NgOptimizedImage],
   templateUrl: './toy.html',
   styleUrl: './toy.css',
 })

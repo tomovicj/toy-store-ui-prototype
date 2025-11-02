@@ -20,10 +20,9 @@
         </tr>
       </thead>
       <tbody>
-        @for (order of orders(); track $index) {
+        @for (order of orders(); track order.id; let i = $index) {
         <tr>
-          <td class="d-none d-md-table-cell"><img [src]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid"
-              style="max-width: 100px;"></td>
+          <td class="d-none d-md-table-cell"><img [ngSrc]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid" width="100" height="100" [priority]="i < 6"></td>
           <td><a routerLink="/toy/{{ order.toyId }}" class="toy-name-link">{{ getToyName(order.toyId) }}</a></td>
           <td>{{ order.quantity }}</td>
           <td>{{ utilService.formatDate(order.orderDate) }}</td>

@@ -5,10 +5,11 @@ import { CustomerService } from '../../services/customer';
 import { UtilService } from '../../services/util';
 import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-toy-card',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgOptimizedImage],
   templateUrl: './toy-card.html',
   styleUrl: './toy-card.css',
 })
@@ -32,6 +33,8 @@ export class ToyCard {
     imageUrl: '',
     reviews: [],
   });
+
+  prioritizeImage = input<boolean>(false);
 
   @Output() reserved = new EventEmitter<{ toyId: string; quantity: number }>();
 
