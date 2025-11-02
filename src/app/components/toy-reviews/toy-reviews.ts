@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
 import { Review } from '../../models/review';
-import { ToyService } from '../../services/toy';
 import { UtilService } from '../../services/util';
 import { CustomerService } from '../../services/customer';
 
@@ -15,11 +14,22 @@ export class ToyReviews {
 
   reviews = input<Review[]>([]);
 
+  private customerNameCache = new Map<string, string>();
+
   getCustomerName(customerId: string) {
-    const customer = this.customerService.getCustomerById(customerId);
-    if (!customer) {
-      return this.utilService.getRandomName();
+    if (this.customerNameCache.has(customerId)) {
+      return this.customerNameCache.get(customerId);
     }
-    return customer.firstName + ' ' + customer.lastName;
+
+    const customer = this.customerService.getCustomerById(customerId);
+    let fullName: string;
+    if (customer) {
+      fullName = customer.firstName + ' ' + customer.lastName;
+    } else {
+      fullName = this.utilService.getRandomName();
+    }
+
+    this.customerNameCache.set(customerId, fullName);
+    return fullName;
   }
 }
