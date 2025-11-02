@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { AuthService, SignUpData } from '../../services/auth';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { ToyService } from '../../services/toy';
 
@@ -14,7 +14,8 @@ export class SignUp {
   constructor(
     private authService: AuthService,
     private toyService: ToyService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
   showPassword = signal<boolean>(false);
@@ -75,7 +76,8 @@ export class SignUp {
 
     this.authService.login(newCustomer.email, newCustomer.password);
 
-    this.router.navigateByUrl('/');
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+    this.router.navigateByUrl(returnUrl || '/');
   }
 
   getToyCategories(): string[] {

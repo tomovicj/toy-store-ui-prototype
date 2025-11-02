@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth';
 import { Tooltip } from 'bootstrap';
 
@@ -11,7 +11,7 @@ import { Tooltip } from 'bootstrap';
   styleUrl: './login.css',
 })
 export class Login implements AfterViewInit {
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) {}
 
   showPassword = signal<boolean>(false);
 
@@ -40,7 +40,8 @@ export class Login implements AfterViewInit {
       return;
     }
 
-    this.router.navigateByUrl('/');
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl');
+    this.router.navigateByUrl(returnUrl || '/');
   }
 
   toggleShowPassword() {

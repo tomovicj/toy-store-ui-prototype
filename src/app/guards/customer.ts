@@ -8,6 +8,7 @@ export const customerGuard: CanActivateFn = (route, state) => {
 
   if (!authService.isLoggedIn()) {
     const loginPath = router.parseUrl('/login');
+    loginPath.queryParams = { returnUrl: state.url };
     return new RedirectCommand(loginPath);
   }
 

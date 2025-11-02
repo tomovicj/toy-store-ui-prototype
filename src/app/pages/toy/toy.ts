@@ -58,7 +58,9 @@ export class ToyPage implements OnInit {
   onReserve() {
     const customer = this.authService.getLoggedInCustomer();
     if (!customer) {
-      this.router.navigateByUrl('/login');
+      const loginPath = this.router.parseUrl('/login');
+      loginPath.queryParams = { returnUrl: this.router.url };
+      this.router.navigateByUrl(loginPath);
       return;
     }
 

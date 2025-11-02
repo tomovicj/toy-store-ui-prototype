@@ -47,9 +47,13 @@ export class ToyCard {
   });
 
   onReserve() {
+    const toyId = this.toy().id;
+
     const customer = this.authService.getLoggedInCustomer();
     if (!customer) {
-      this.router.navigateByUrl('/login');
+      const loginPath = this.router.parseUrl('/login');
+      loginPath.queryParams = { returnUrl: `/toy/${toyId}` };
+      this.router.navigateByUrl(loginPath);
       return;
     }
 
@@ -58,7 +62,6 @@ export class ToyCard {
       return;
     }
 
-    const toyId = this.toy().id;
     const quantity = this.form.value.quantity;
 
     this.customerService.reserveToy(customer.id, toyId, quantity);
