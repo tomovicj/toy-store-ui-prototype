@@ -1,0 +1,96 @@
+<div #dropdown class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+    <i class="bi bi-funnel"></i> Filter
+  </button>
+  <form class="dropdown-menu" style="width: 350px;" [formGroup]="form" (ngSubmit)="applyFilter()">
+    <div class="mb-3">
+      <label for="search-input" class="form-label">Search</label>
+      <input type="text" class="form-control" id="search-input" placeholder="Search toys..." formControlName="search" />
+    </div>
+    <div class="mb-3 d-flex gap-3">
+      <div>
+        <label for="min-price-input" class="form-label text-nowrap">Min Price</label>
+        <input type="number" class="form-control" id="min-price-input" formControlName="minPrice" />
+      </div>
+      <div>
+        <label for="max-price-input" class="form-label text-nowrap">Max Price</label>
+        <input type="number" class="form-control" id="max-price-input" formControlName="maxPrice" />
+      </div>
+    </div>
+    <div class="mb-3 d-flex gap-3">
+      <div>
+        <label for="min-rating-input" class="form-label text-nowrap">Min Rating</label>
+        <input type="number" class="form-control" id="min-rating-input" formControlName="minRating" />
+      </div>
+      <div>
+        <label for="max-rating-input" class="form-label text-nowrap">Max Rating</label>
+        <input type="number" class="form-control" id="max-rating-input" formControlName="maxRating" />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="category-select" class="form-label">Category</label>
+      <select class="form-select" id="category-select" formControlName="category">
+        <option value="" selected>All Categories</option>
+        @for (category of getToyCategories(); track category) {
+        <option [value]="category">{{ category }}</option>
+        }
+      </select>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="boy" id="checkBoy" formControlName="genderBoy" />
+        <label class="form-check-label" for="checkBoy">
+          Boys
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="girl" id="checkGirl" formControlName="genderGirl" />
+        <label class="form-check-label" for="checkGirl">
+          Girls
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="unisex" id="checkUnisex" formControlName="genderUnisex" />
+        <label class="form-check-label" for="checkUnisex">
+          Unisex
+        </label>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Age Group</label>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="0-2" id="check0-2" formControlName="ageGroup0to2" />
+        <label class="form-check-label" for="check0-2">
+          0-2 years
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="3-5" id="check3-5" formControlName="ageGroup3to5" />
+        <label class="form-check-label" for="check3-5">
+          3-5 years
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="6-8" id="check6-8" formControlName="ageGroup6to8" />
+        <label class="form-check-label" for="check6-8">
+          6-8 years
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="9-12" id="check9-12" formControlName="ageGroup9to12" />
+        <label class="form-check-label" for="check9-12">
+          9-12 years
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="13+" id="check13+" formControlName="ageGroup13plus" />
+        <label class="form-check-label" for="check13+">
+          13+ years
+        </label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-secondary w-100 mb-2" (click)="clearFilters()">Clear Filters</button>
+    <button type="submit" class="btn btn-primary w-100">Apply Filters</button>
+  </form>
+</div>
