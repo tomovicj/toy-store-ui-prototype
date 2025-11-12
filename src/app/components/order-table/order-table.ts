@@ -9,6 +9,7 @@ import { RateAToy } from '../modals/rate-a-toy/rate-a-toy';
 import { CancelOrder } from '../modals/cancel-order/cancel-order';
 import { ReviewInfo } from '../modals/review-info/review-info';
 import { NgOptimizedImage } from '@angular/common';
+import { Toy } from '../../models/toy';
 
 @Component({
   selector: 'app-order-table',
@@ -26,6 +27,8 @@ export class OrderTable implements OnInit {
 
   orders = signal<Order[]>([]);
 
+  private toysCash = new Map<string, Toy | null>();
+
   ngOnInit(): void {
     this.loadOrders();
   }
@@ -40,15 +43,30 @@ export class OrderTable implements OnInit {
     this.orders.set(customer.orders);
   }
 
-  getToyName(orderId: string): string {
-    const toy = this.toyService.getToyById(orderId);
+  private getToyById(toyId: string): Toy | null {
+    if (!this.toysCash.has(toyId)) {
+      const toy = this.toyService.getToyById(toyId);
+      this.toysCash.set(toyId, toy);
+    }
+
+    return this.toysCash.get(toyId)!;
+  }
+
+  getToyName(toyId: string): string {
+    const toy = this.getToyById(toyId);
     return toy ? toy.name : 'Unknown Toy';
   }
 
-  getToyImage(orderId: string): string {
-    const toy = this.toyService.getToyById(orderId);
+  getToyImage(toyId: string): string {
+    const toy = this.getToyById(toyId);
     return toy ? toy.imageUrl : '';
   }
+
+  getToyPrice(toyId: string): number {
+    const toy = this.getToyById(toyId);
+    return toy ? toy.price : 0;
+  }
+
 
   isOrderReviewed(orderId: string): boolean {
     const customer = this.authService.getLoggedInCustomer();
