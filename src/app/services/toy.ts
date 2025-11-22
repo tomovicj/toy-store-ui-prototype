@@ -2,20 +2,28 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Toy } from '../models/toy';
 import { Review } from '../models/review';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ToyService {
-  constructor(private http: HttpClient) {
-    const toys = localStorage.getItem('toys');
-    if (toys) return;
+  constructor(private http: HttpClient) {}
 
-    this.http
-      .get<Toy[]>('toys.json')
-      .subscribe((data) => {
-      localStorage.setItem('toys', JSON.stringify(data));
-    });
+  initialize(): Promise<void> {
+    const toys = localStorage.getItem('toys');
+    if (toys) {
+      return Promise.resolve();
+    }
+
+    // Convert the Observable to a Promise
+    return firstValueFrom(this.http.get<Toy[]>('toys.json'))
+      .then((data) => {
+        localStorage.setItem('toys', JSON.stringify(data));
+      })
+      .catch((error) => {
+        console.error('Failed to initialize toys: ', error);
+      });
   }
 
   getToys(): Toy[] {
