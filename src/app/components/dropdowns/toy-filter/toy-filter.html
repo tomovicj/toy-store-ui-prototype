@@ -2,7 +2,7 @@
   <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
     <i class="bi bi-funnel"></i> Filter
   </button>
-  <form class="dropdown-menu" style="width: 350px;" [formGroup]="form" (ngSubmit)="applyFilter()">
+  <form class="dropdown-menu p-3" style="width: 350px;" [formGroup]="form" (ngSubmit)="applyFilter()">
     <div class="mb-3">
       <label for="search-input" class="form-label">Search</label>
       <input type="text" class="form-control" id="search-input" placeholder="Search toys..." formControlName="search" />
