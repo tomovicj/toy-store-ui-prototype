@@ -5,8 +5,8 @@
       <div class="card-header">
         <h5 class="card-title">Login</h5>
       </div>
-      <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card-body">
           <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email"
@@ -15,14 +15,24 @@
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password"
-              [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched) || form.hasError('invalidCredentials')"
-              class="form-control" id="password" formControlName="password">
+            <div class="input-group">
+              <input [type]="showPassword() ? 'text' : 'password'"
+                [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched) || form.hasError('invalidCredentials')"
+                class="form-control" id="password" formControlName="password">
+              <button class="btn btn-outline-secondary" type="button" (click)="toggleShowPassword()">
+                <i class="bi" [class]="showPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+            </div>
           </div>
-          <a routerLink="/signup" class="btn btn-link p-0 text-muted">Don't have an account?</a>
-          <button type="submit" class="btn btn-primary float-end">Submit</button>
-        </form>
-      </div>
+        </div>
+        <div class="card-footer d-flex justify-content-between align-items-center">
+          <button class="btn btn-outline-secondary" type="button" data-bs-toggle="tooltip" data-bs-title="Fill example user credentials" (click)="fillExampleUserCredentials()"><i class="bi bi-person-fill"></i></button>
+          <div class="d-flex align-items-center gap-3">
+            <a routerLink="/signup" queryParamsHandling="preserve" class="btn btn-link p-0 text-muted">Don't have an account?</a>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="col-3"></div>

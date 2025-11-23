@@ -1,0 +1,23 @@
+<div #toyReservedModal class="modal" id="toy-reserved-modal" tabindex="-1" aria-labelledby="toy-reserved-modal-label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="toy-reserved-modal-label">Toy Reserved 🎉</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="alert alert-success" role="alert">
+          <h4 class="alert-heading">{{ toy()?.name }}</h4>
+          <p>Price: {{ utilService.formatPrice(toy()?.price || 0) }}</p>
+          <p>Quantity: {{ quantity() }}</p>
+          <hr>
+          <p>Total: {{ utilService.formatPrice((toy()?.price || 0) * quantity()) }}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Continue Shopping</button>
+        <button type="button" class="btn btn-primary" (click)="goToCart()">Go to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

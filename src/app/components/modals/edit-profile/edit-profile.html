@@ -47,8 +47,11 @@
             <label for="favorite-category" class="form-label">Favorite Category
               <button class="btn btn-link p-0 text-reset" type="button" (click)="resetFieldValue('favoriteCategory')" data-bs-toggle="tooltip" data-bs-title="Reset field"><i class="bi bi-arrow-counterclockwise"></i></button>
             </label>
-            <input type="text" class="form-control" id="favorite-category" required formControlName="favoriteCategory"
-              [class.is-invalid]="form.get('favoriteCategory')?.invalid && form.get('favoriteCategory')?.touched">
+            <select class="form-select" id="favorite-toy-category" formControlName="favoriteCategory">
+              @for (category of getToyCategories(); track $index) {
+                <option [value]="category">{{ category }}</option>
+              }
+            </select>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password
@@ -74,12 +77,12 @@
             <label for="confirm-password" class="form-label">Confirm Password</label>
             <div class="input-group">
               <input [type]="showConfirmPassword() ? 'text' : 'password'" class="form-control" id="confirm-password" formControlName="confirmPassword"
-                [class.is-invalid]="form.hasError('passwordMismatch') && form.get('confirmPassword')?.touched">
+                [class.is-invalid]="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched">
               <button class="btn btn-outline-secondary" type="button" (click)="toggleShowConfirmPassword()">
                 <i class="bi" [class]="showConfirmPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
               </button>
             </div>
-            @if (form.hasError('passwordMismatch') && form.get('confirmPassword')?.touched) {
+            @if (form.get('confirmPassword')?.hasError('passwordMismatch') && form.get('confirmPassword')?.touched) {
             <ul>
               <li class="text-danger">Passwords do not match</li>
             </ul>

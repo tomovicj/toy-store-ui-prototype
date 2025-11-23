@@ -5,8 +5,8 @@
       <div class="card-header">
         <h5 class="card-title">Sign Up</h5>
       </div>
-      <div class="card-body">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="card-body">
           <div class="mb-3">
             <label for="first-name" class="form-label">First Name</label>
             <input type="text" [class.is-invalid]="(form.get('firstName')?.invalid && form.get('firstName')?.touched)"
@@ -22,9 +22,11 @@
             <input type="email"
               [class.is-invalid]="(form.get('email')?.invalid && form.get('email')?.touched) || form.hasError('emailInUse')"
               class="form-control" id="email" formControlName="email">
-              @if (form.hasError('emailInUse')) {
-                <ul><li class="text-danger">Email is already in use</li></ul>
-              }
+            @if (form.get('email')?.hasError('emailInUse') && form.get('email')?.touched) {
+            <ul>
+              <li class="text-danger">Email is already in use</li>
+            </ul>
+            }
           </div>
           <div class="mb-3">
             <label for="phone-number" class="form-label">Phone Number</label>
@@ -39,34 +41,51 @@
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" [class.is-invalid]="(form.get('password')?.invalid && form.get('password')?.touched)"
-              class="form-control" id="password" formControlName="password">
-              @if (form.get('password')?.hasError('minlength')) {
-                <ul><li class="text-danger">Password must be at least 6 characters long</li></ul>
-              }
+            <div class="input-group">
+              <input [type]="showPassword() ? 'text' : 'password'"
+                [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+                class="form-control" id="password" formControlName="password">
+              <button class="btn btn-outline-secondary" type="button" (click)="toggleShowPassword()">
+                <i class="bi" [class]="showPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+            </div>
+            @if (form.get('password')?.hasError('minlength') && form.get('password')?.touched) {
+            <ul>
+              <li class="text-danger">Password must be at least 6 characters long</li>
+            </ul>
+            }
           </div>
           <div class="mb-3">
             <label for="confirm-password" class="form-label">Confirm Password</label>
-            <input type="password"
-              [class.is-invalid]="(form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched) || form.hasError('passwordMismatch')"
-              class="form-control" id="confirm-password" formControlName="confirmPassword">
-              @if (form.hasError('passwordMismatch')) {
-                <ul><li class="text-danger">Passwords do not match</li></ul>
-              }
+            <div class="input-group">
+              <input [type]="showConfirmPassword() ? 'text' : 'password'"
+                [class.is-invalid]="form.get('confirmPassword')?.invalid && form.get('confirmPassword')?.touched"
+                class="form-control" id="confirm-password" formControlName="confirmPassword">
+              <button class="btn btn-outline-secondary" type="button" (click)="toggleShowConfirmPassword()">
+                <i class="bi" [class]="showConfirmPassword() ? 'bi-eye-slash' : 'bi-eye'"></i>
+              </button>
+            </div>
+            @if (form.get('confirmPassword')?.hasError('passwordMismatch') && form.get('confirmPassword')?.touched) {
+            <ul>
+              <li class="text-danger">Passwords do not match</li>
+            </ul>
+            }
           </div>
           <div class="mb-3">
             <label for="favorite-toy-category" class="form-label">Favorite Toy Category</label>
-            <select class="form-select" id="favorite-toy-category" formControlName="favoriteCategory">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+            <select class="form-select" id="favorite-toy-category" formControlName="favoriteCategory"
+              [class.is-invalid]="(form.get('favoriteCategory')?.invalid && form.get('favoriteCategory')?.touched)">
+              @for (category of getToyCategories(); track $index) {
+                <option [value]="category">{{ category }}</option>
+              }
             </select>
           </div>
-          <a routerLink="/login" class="btn btn-link p-0 text-muted">Already have an account?</a>
+        </div>
+        <div class="card-footer d-flex justify-content-end align-items-center gap-3">
+          <a routerLink="/login" queryParamsHandling="preserve" class="btn btn-link p-0 text-muted">Already have an account?</a>
           <button type="submit" class="btn btn-primary float-end">Submit</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </div>
   <div class="col-3"></div>

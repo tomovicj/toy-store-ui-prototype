@@ -1,14 +1,15 @@
-import { Component, input } from '@angular/core';
+import { Component, EventEmitter, input, Output } from '@angular/core';
 import { Toy } from '../../models/toy';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CustomerService } from '../../services/customer';
 import { UtilService } from '../../services/util';
 import { AuthService } from '../../services/auth';
 import { Router } from '@angular/router';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-toy-card',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgOptimizedImage],
   templateUrl: './toy-card.html',
   styleUrl: './toy-card.css',
 })
@@ -33,6 +34,10 @@ export class ToyCard {
     reviews: [],
   });
 
+  prioritizeImage = input<boolean>(false);
+
+  @Output() reserved = new EventEmitter<{ toyId: string; quantity: number }>();
+
   form: FormGroup = new FormGroup({
     quantity: new FormControl(1, [
       Validators.required,
@@ -42,9 +47,13 @@ export class ToyCard {
   });
 
   onReserve() {
+    const toyId = this.toy().id;
+
     const customer = this.authService.getLoggedInCustomer();
     if (!customer) {
-      this.router.navigateByUrl('/login');
+      const loginPath = this.router.parseUrl('/login');
+      loginPath.queryParams = { returnUrl: `/toy/${toyId}` };
+      this.router.navigateByUrl(loginPath);
       return;
     }
 
@@ -53,7 +62,11 @@ export class ToyCard {
       return;
     }
 
-    this.customerService.reserveToy(customer.id, this.toy().id, this.form.value.quantity);
+    const quantity = this.form.value.quantity;
+
+    this.customerService.reserveToy(customer.id, toyId, quantity);
+    this.form.reset({ quantity: 1 });
+    this.reserved.emit({ toyId, quantity });
   }
 
   onClick(event: MouseEvent) {

@@ -1,21 +1,24 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Toy } from '../../models/toy';
 import { ToyService } from '../../services/toy';
 import { UtilService } from '../../services/util';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ToyReviews } from '../../components/toy-reviews/toy-reviews';
+import { ToyReserved } from '../../components/modals/toy-reserved/toy-reserved';
 import { AuthService } from '../../services/auth';
 import { CustomerService } from '../../services/customer';
-import { Location } from '@angular/common';
+import { Location, NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-toy',
-  imports: [ReactiveFormsModule, ToyReviews],
+  imports: [ReactiveFormsModule, ToyReviews, ToyReserved, NgOptimizedImage],
   templateUrl: './toy.html',
   styleUrl: './toy.css',
 })
 export class ToyPage implements OnInit {
+  @ViewChild(ToyReserved) toyReservedModal!: ToyReserved;
+
   toy = signal<Toy | null>(null);
   reservationForm = new FormGroup({
     quantity: new FormControl('1', [
@@ -55,7 +58,9 @@ export class ToyPage implements OnInit {
   onReserve() {
     const customer = this.authService.getLoggedInCustomer();
     if (!customer) {
-      this.router.navigateByUrl('/login');
+      const loginPath = this.router.parseUrl('/login');
+      loginPath.queryParams = { returnUrl: this.router.url };
+      this.router.navigateByUrl(loginPath);
       return;
     }
 
@@ -64,15 +69,18 @@ export class ToyPage implements OnInit {
       return;
     }
 
+    const toyId = this.toy()!.id;
+    const quantity = parseInt(this.reservationForm.value.quantity!);
+
     this.customerService.reserveToy(
       customer.id,
-      this.toy()!.id,
-      parseInt(this.reservationForm.value.quantity!)
+      toyId,
+      quantity
     );
 
     this.reservationForm.reset({ quantity: '1' });
     this.reservationForm.markAsUntouched();
-    alert('Toy added to cart!'); // TODO: Replace with better notification
+    this.toyReservedModal?.show(toyId, quantity);
   }
 
   getAverageRating() {
