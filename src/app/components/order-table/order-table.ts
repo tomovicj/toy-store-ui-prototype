@@ -8,12 +8,12 @@ import { Order } from '../../models/order';
 import { RateAToy } from '../modals/rate-a-toy/rate-a-toy';
 import { CancelOrder } from '../modals/cancel-order/cancel-order';
 import { ReviewInfo } from '../modals/review-info/review-info';
-import { NgOptimizedImage } from '@angular/common';
+import { NgOptimizedImage, NgClass } from '@angular/common';
 import { Toy } from '../../models/toy';
 
 @Component({
   selector: 'app-order-table',
-  imports: [RouterLink, RateAToy, CancelOrder, ReviewInfo, NgOptimizedImage],
+  imports: [RouterLink, RateAToy, CancelOrder, ReviewInfo, NgOptimizedImage, NgClass],
   templateUrl: './order-table.html',
   styleUrl: './order-table.css',
 })
