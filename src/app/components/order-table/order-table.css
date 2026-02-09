@@ -1,8 +1,3 @@
-.toy-name-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.toy-name-link:hover {
-  text-decoration: underline;
+table > tbody > tr:last-child > td {
+  border-bottom-width: 0px;
 }

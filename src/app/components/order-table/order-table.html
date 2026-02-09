@@ -1,34 +1,48 @@
 <div class="card mb-5">
   <div class="card-header">
-    <h2>Order Table</h2>
+    <h2 class="mb-0">Orders</h2>
   </div>
-  <div class="card-body">
+  <div class="card-body p-0">
     @if (orders().length === 0) {
-    <div class="alert alert-info m-0" role="alert">
-      No orders yet.
+    <div class="text-center py-5">
+      <i class="bi bi-cart-x display-1 text-muted"></i>
+      <h4 class="mt-3 text-muted">No Orders Yet</h4>
+      <p class="text-muted mb-0">Your order history will appear here once you make a purchase.</p>
     </div>
     } @else {
 
     <!-- Mobile Card View -->
     <div class="d-lg-none">
       @for (order of orders(); track order.id; let i = $index) {
-      <div class="card mb-3 shadow-sm">
+      <div class="card m-2 shadow-sm">
         <div class="card-body">
           <div class="row">
             <div class="col-4">
               <div class="ratio ratio-1x1">
-                <img [ngSrc]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid rounded object-fit-cover" width="100" height="100" [priority]="i < 6">
+                <img [ngSrc]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid rounded object-fit-cover"
+                  width="100" height="100" [priority]="i < 6">
               </div>
             </div>
             <div class="col-8">
               <h5 class="card-title h5 mb-2 lh-sm">
-                <a routerLink="/toy/{{ order.toyId }}" class="toy-name-link">{{ getToyName(order.toyId) }}</a>
+                <a routerLink="/toy/{{ order.toyId }}"
+                  class="link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">{{
+                  getToyName(order.toyId) }}</a>
               </h5>
-              <span class="badge text-capitalize" [ngClass]="{
-                'bg-warning': order.status === 'reserved',
-                'bg-success': order.status === 'arrived',
-                'bg-secondary': order.status === 'canceled',
-              }">{{ order.status }}</span>
+              <span class="badge rounded-pill text-capitalize" [ngClass]="{
+                'text-bg-warning': order.status === 'reserved',
+                'text-bg-success': order.status === 'arrived',
+                'text-bg-secondary': order.status === 'canceled'
+              }">
+                @if (order.status === 'reserved') {
+                <i class="bi bi-clock-history"></i>
+                } @else if (order.status === 'arrived') {
+                <i class="bi bi-check-circle-fill"></i>
+                } @else {
+                <i class="bi bi-x-circle-fill"></i>
+                }
+                {{ order.status }}
+              </span>
             </div>
           </div>
 
@@ -46,7 +60,9 @@
               <span class="fw-bold">{{ utilService.formatPrice(getToyPrice(order.toyId) * order.quantity) }}</span>
             </div>
             <div class="d-flex justify-content-between align-items-center py-2 border-bottom-0">
-              <span class="fw-semibold text-secondary">Date:</span>
+              <span class="fw-semibold text-secondary">
+                <i class="bi bi-calendar3"></i> Date:
+              </span>
               <span>{{ utilService.formatDate(order.orderDate) }}</span>
             </div>
           </div>
@@ -55,19 +71,28 @@
             @switch (order.status) {
             @case ('reserved') {
             <div class="d-grid gap-2">
-              <button class="btn btn-primary" (click)="orderArrived(order.id)">Arrived</button>
-              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Cancel</button>
+              <button class="btn btn-primary" (click)="orderArrived(order.id)">
+                <i class="bi bi-check-lg"></i> Arrived
+              </button>
+              <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal"
+                [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">
+                <i class="bi bi-x-lg"></i> Cancel
+              </button>
             </div>
             }
             @case ('arrived') {
-              @if (isOrderReviewed(order.id)) {
-                <button class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#review-info-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">View Review</button>
-              } @else {
-                <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Rate a toy</button>
-              }
+            @if (isOrderReviewed(order.id)) {
+            <button class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#review-info-modal"
+              [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">View Review</button>
+            } @else {
+            <button class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal"
+              [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">
+              <i class="bi bi-star"></i> Rate a toy
+            </button>
+            }
             }
             @default {
-              <span class="text-muted fst-italic">No actions available</span>
+            <span class="text-muted fst-italic">No actions available</span>
             }
             }
           </div>
@@ -77,8 +102,8 @@
     </div>
 
     <!-- Desktop Table View -->
-    <div class="d-none d-lg-block">
-      <table class="table table-hover align-middle">
+    <div class="d-none d-lg-block table-responsive">
+      <table class="table table-hover align-middle mb-0">
         <thead>
           <tr>
             <th scope="col"></th>
@@ -94,32 +119,62 @@
         <tbody>
           @for (order of orders(); track order.id; let i = $index) {
           <tr>
-            <td><img [ngSrc]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid" width="100" height="100" [priority]="i < 6"></td>
-            <td><a routerLink="/toy/{{ order.toyId }}" class="toy-name-link">{{ getToyName(order.toyId) }}</a></td>
+            <td><img [ngSrc]="getToyImage(order.toyId)" alt="Toy image" class="img-fluid" width="100" height="100"
+                [priority]="i < 6"></td>
+            <td>
+              <a routerLink="/toy/{{ order.toyId }}"
+                class="link-body-emphasis link-underline-opacity-0 link-underline-opacity-100-hover">
+                {{ getToyName(order.toyId) }}
+              </a>
+            </td>
             <td>{{ utilService.formatPrice(getToyPrice(order.toyId)) }}</td>
             <td>{{ order.quantity }}</td>
-            <td>{{ utilService.formatPrice(getToyPrice(order.toyId) * order.quantity) }}</td>
-            <td>{{ utilService.formatDate(order.orderDate) }}</td>
-            <td class="text-capitalize">{{ order.status }}</td>
+            <td class="fw-xl-semibold">{{ utilService.formatPrice(getToyPrice(order.toyId) * order.quantity) }}</td>
+            <td class="text-nowrap">{{ utilService.formatDate(order.orderDate) }}</td>
+            <td>
+              <span class="badge rounded-pill text-capitalize" [ngClass]="{
+                'text-bg-warning': order.status === 'reserved',
+                'text-bg-success': order.status === 'arrived',
+                'text-bg-secondary': order.status === 'canceled'
+              }">
+                @if (order.status === 'reserved') {
+                <i class="bi bi-clock-history d-none d-xl-inline"></i>
+                } @else if (order.status === 'arrived') {
+                <i class="bi bi-check-circle-fill d-none d-xl-inline"></i>
+                } @else {
+                <i class="bi bi-x-circle-fill d-none d-xl-inline"></i>
+                }
+                {{ order.status }}
+              </span>
+            </td>
             <td>
               @switch (order.status) {
               @case ('reserved') {
               <div class="btn-group" role="group">
-                <button class="btn btn-primary" (click)="orderArrived(order.id)">Arrived</button>
-                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Cancel</button>
+                <button class="btn btn-sm btn-primary" (click)="orderArrived(order.id)">
+                  <i class="bi bi-check-lg d-none d-xl-inline"></i> Arrived
+                </button>
+                <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#cancel-order-modal"
+                  [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">
+                  <i class="bi bi-x-lg d-none d-xl-inline"></i> Cancel
+                </button>
               </div>
               }
               @case ('arrived') {
-                @if (isOrderReviewed(order.id)) {
-                  <button class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#review-info-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">View Review</button>
-                } @else {
-                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal" [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">Rate a toy</button>
-                }
+              @if (isOrderReviewed(order.id)) {
+              <button class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#review-info-modal"
+                [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">View Review</button>
+              } @else {
+              <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#rate-a-toy-modal"
+                [attr.data-bs-order-id]="order.id" [attr.data-bs-toy-id]="order.toyId">
+                <i class="bi bi-star d-none d-xl-inline"></i> Rate a toy
+              </button>
+              }
               }
               @default {
-                <span class="text-muted fst-italic">No actions available</span>
+              <span class="text-muted fst-italic">No actions available</span>
               }
-            }
+              }
             </td>
           </tr>
           }
