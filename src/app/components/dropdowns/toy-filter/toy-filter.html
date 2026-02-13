@@ -1,5 +1,5 @@
 <div #dropdown class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" (click)="toggleDropdown()">
     <i class="bi bi-funnel"></i> Filter
   </button>
   <form class="dropdown-menu p-3" style="width: 350px;" [formGroup]="form" (ngSubmit)="applyFilter()">
