@@ -4,10 +4,11 @@ import { Customer } from '../../models/customer';
 import { Router } from '@angular/router';
 import { OrderTable } from '../../components/order-table/order-table';
 import { EditProfile } from '../../components/modals/edit-profile/edit-profile';
+import { UserProfile } from '../../components/user-profile/user-profile';
 
 @Component({
   selector: 'app-profile',
-  imports: [OrderTable, EditProfile],
+  imports: [OrderTable, EditProfile, UserProfile],
   templateUrl: './profile.html',
   styleUrl: './profile.css',
 })

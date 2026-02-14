@@ -1,4 +1,4 @@
-<div class="toy-card border h-100 d-flex flex-column" style="max-width: 300px;" (click)="onClick($event)">
+<div class="toy-card border h-100 d-flex flex-column" (click)="onClick($event)">
   <div>
     <img [ngSrc]="toy().imageUrl" alt="{{ toy().name }}" class="img-fluid" width="1024" height="1024" />
   </div>
