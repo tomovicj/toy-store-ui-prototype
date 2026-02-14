@@ -130,7 +130,7 @@ The production build will be stored in the `dist/` directory.
 ```
 src/
 ├── app/
-│   ├── components/         # Reusable components
+│   ├── components/        # Reusable components
 │   │   ├── toy-card/      # Product card component
 │   │   ├── toy-reviews/   # Reviews display component
 │   │   ├── user-profile/  # Profile display component
@@ -143,13 +143,14 @@ src/
 │   │   ├── toy/           # Product detail page
 │   │   ├── login/         # Login page
 │   │   ├── sign-up/       # Registration page
-│   │   └── profile/       # User profile page
+│   │   ├── profile/       # User profile page
+│   │   └── about/         # About page
 │   ├── services/          # Data services
 │   ├── models/            # TypeScript interfaces
 │   ├── guards/            # Route guards
 │   └── pipes/             # Custom pipes
 ├── public/                # Static assets
-└── styles.css            # Global styles
+└── styles.css             # Global styles
 ```
 
 
