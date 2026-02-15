@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 import { Customer } from '../models/customer';
 import { CustomerService } from './customer';
 import { ToyService } from './toy';
@@ -38,7 +39,7 @@ export class AuthService {
     }
 
     const customer: Customer = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       firstName: data.firstName,
       lastName: data.lastName,
       email: data.email,

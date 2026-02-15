@@ -9,6 +9,8 @@ import { AuthService } from '../../services/auth';
   styleUrl: './navbar.css',
 })
 export class Navbar {
+  isMenuOpen = false;
+
   constructor(private router: Router, private authService: AuthService) {}
 
   isLoggedIn() {
@@ -18,5 +20,14 @@ export class Navbar {
   logout() {
     this.authService.logout();
     this.router.navigateByUrl('/');
+    this.closeMenu();
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  closeMenu() {
+    this.isMenuOpen = false;
   }
 }

@@ -5,11 +5,13 @@ import { guestOnlyGuard } from './guards/guest-only';
 import { Home } from './pages/home/home';
 import { ToyPage } from './pages/toy/toy';
 import { Profile } from './pages/profile/profile';
+import { About } from './pages/about/about';
 import { customerGuard } from './guards/customer';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'toy/:id', component: ToyPage },
+  { path: 'about', component: About },
   { path: 'login', component: Login, canActivate: [guestOnlyGuard] },
   { path: 'signup', component: SignUp, canActivate: [guestOnlyGuard] },
   { path: 'profile', component: Profile, canActivate: [customerGuard] },

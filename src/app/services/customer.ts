@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { v4 as uuidv4 } from 'uuid';
 import { Customer } from '../models/customer';
 import { Order } from '../models/order';
 import { ToyService } from './toy';
@@ -43,7 +44,7 @@ export class CustomerService {
     }
 
     const order: Order = {
-      id: crypto.randomUUID(),
+      id: uuidv4(),
       toyId,
       quantity,
       orderDate: new Date().toISOString(),
