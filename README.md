@@ -183,6 +183,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 Created by Jovan Tomovic - feel free to reach out!
 
-- GitHub: [@tomovicj](https://github.jovantomovic.com)
-- LinkedIn: [Jovan Tomovic](https://linkedin.jovantomovic.com)
+- GitHub: [@tomovicj](https://links.jovantomovic.com/github)
+- LinkedIn: [Jovan Tomovic](https://links.jovantomovic.com/linkedin)
 - Email: contact@jovantomovic.com
